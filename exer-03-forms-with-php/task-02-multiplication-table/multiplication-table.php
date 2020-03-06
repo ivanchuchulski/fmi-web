@@ -3,14 +3,20 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>ex-03</title>
-
 		<style>
+			table {
+				height: 400px;
+				width: 400px;
+				border: solid;
+			}
 			th {
 				color: black;
+				background-color: azure;
 				font-size: 40px;
 			}
 			td {
-				color: green;
+				color: black;
+				background-color: aquamarine;
 				font-size: 20px;
 				text-align: center;
 			}
@@ -18,23 +24,21 @@
 	</head>
 	<body>
 		<h1>Multiplication table</h1>
-		<table border="1" style="height: 400px; width: 400px;">
+		<table border="1">
 		<?php
-			for ($rows=1; $rows <= 9; $rows++) { 
+			for ($row=1; $row <= 9; $row++) { 
 				echo '<tr>';
-				for ($cols=1; $cols <= 9; $cols++) { 
-					if ($rows === 1) {
-						echo "<th>"."$cols"."</th>";
+				for ($column=1; $column <= 9; $column++) { 
+					if ($row === 1) {
+						echo "<th>"."$column"."</th>";
 					}
 
-					else if ($cols === 1) {
-						echo "<th>"."$rows"."</th>";
+					else if ($column === 1) {
+						echo "<th>"."$row"."</th>";
 					}
 
 					else {
-						echo "<td>";
-						echo $rows * $cols;
-						echo"</td>";
+						echo "<td>".$row * $column."</td>";
 					}
 				}
 				echo '</tr>';

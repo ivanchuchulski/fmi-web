@@ -21,8 +21,8 @@
         
         public function __construct()
         {
-            $validData = array();
-            $inputDataErrors = array();
+            $this->validData = array();
+            $this->inputDataErrors = array();
         }
 
         public function &getValidData()
@@ -40,9 +40,9 @@
            $this->validData[$fieldName] = formatInput($fieldData);
         }
 
-        public function addError($fieldName, $errorMessege)
+        public function addError($fieldName, $errorMessage)
         {
-           $this->inputDataErrors[$fieldName] = formatInput($errorMessege);
+           $this->inputDataErrors[$fieldName] = formatInput($errorMessage);
         }
 
         private function formatInput($formField) {
@@ -54,7 +54,7 @@
         }
     }
 
-    function validateCourse($course, &$formData)
+    function validateCourse($course, FormData &$formData)
     {
         if (empty($course)) {
             $formData->addError("course", "error : course field is required");
@@ -67,7 +67,7 @@
         } 
     }
 
-    function validateLecturer($lecturer, &$formData)
+    function validateLecturer($lecturer, FormData &$formData)
     {
         if (empty($lecturer)) {
             $formData->addError("lecturer", "error : lecturer field is required");
@@ -80,33 +80,30 @@
         } 
     }
 
-    function validateDescribtion($describtion, &$formData)
+    function validateDescription($description, FormData &$formData)
     {
-        if (empty($describtion)) {
-            $formData->addError("describtion", "error : describtion field is required");
+        if (empty($description)) {
+            $formData->addError("description", "error : description field is required");
         } 
-        elseif (strlen($describtion) < 10) {
-            $formData->addError("describtion", "error : describtion field min len is 10 chars");
+        elseif (strlen($description) < 10) {
+            $formData->addError("description", "error : description field min len is 10 chars");
         }
         else {
-            $formData->addValidField("describtion", $describtion);
+            $formData->addValidField("description", $description);
         } 
     }
 
-
+    // Main
     $formData = new FormData();
 
     validateCourse($_POST['course'], $formData);
     validateLecturer($_POST['lecturer'], $formData);
-    validateDescribtion($_POST['describtion'], $formData);
+    validateDescription($_POST['description'], $formData);
     $formData->addValidField("group", $_POST['group']);
 
-    // $a = 'name';
-    // $arr = array();
-    // $arr[$a] = 'opa';
-    // var_dump($arr);
 
     var_dump($formData->getValidData());
+    echo '<br>';
     var_dump($formData->getInputDataErrors());
 
 

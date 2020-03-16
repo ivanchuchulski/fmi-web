@@ -16,7 +16,7 @@ function formSubmit(event) {
     let validFormData = {username: null, password: null};
     let errorFormData = {username: null, password: null};
 
-    usernameIsValidator(usernameField.value, validFormData, errorFormData);
+    usernameValidator(usernameField.value, validFormData, errorFormData);
     passwordValidator(passwordField.value, passwordRepeated.value, validFormData, errorFormData);
 
     console.log(validFormData);
@@ -26,7 +26,7 @@ function formSubmit(event) {
     event.preventDefault();
 }
 
-function usernameIsValidator(username, validFormData, errorFormData) {
+function usernameValidator(username, validFormData, errorFormData) {
     let usernamePattern = new RegExp(/^\w{3,10}$/);
     let usernameLength = username.length;
 

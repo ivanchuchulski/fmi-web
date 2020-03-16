@@ -1,7 +1,8 @@
 
 
 // of=ifthe  script wasn't included with async we have to wait to DOM to load in order to select nodes 
-// window.onload =  function playground() {
+// window.onload = function playground() {
+//      code...
 // }
 
 let title = document.getElementById('page-title');

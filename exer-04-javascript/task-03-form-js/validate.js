@@ -1,14 +1,13 @@
-function validateForm() {
-    let formField = document.getElementById('myForm');
+window.onload = function validateForm() {
+    var formField = document.getElementById('myForm');
 
-    console.log(formField);
+    console.log("test messege");
     formField.addEventListener('submit', formSubmit);
     
     // remove the event listener
-    // formField.removeEventListener('submit', formSubmit);
 }
 
-function formSubmit(event) {
+function formSubmit(formSubmissionEvent) {
     let usernameField = document.getElementById('username');
     let passwordField = document.getElementById('password');
     let passwordRepeated = document.getElementById('passwordRepeated');
@@ -19,11 +18,21 @@ function formSubmit(event) {
     usernameValidator(usernameField.value, validFormData, errorFormData);
     passwordValidator(passwordField.value, passwordRepeated.value, validFormData, errorFormData);
 
+    console.log("event : ");
+    console.log(formSubmissionEvent);
+
+    console.log("valid data : ");
     console.log(validFormData);
+
+    console.log("error data : ");
     console.log(errorFormData);
 
-    // added this for debugging, disables form submittion
-    event.preventDefault();
+    if (errorFormData.username !== null || errorFormData.password !== null) {
+        // for debugging to stop the form submission
+        formSubmissionEvent.preventDefault();
+        return;
+    }
+
 }
 
 function usernameValidator(username, validFormData, errorFormData) {
@@ -72,9 +81,6 @@ function ContainsUppercaseLetter(str) {
 function ContainsDigit(str) {
     return str.match(/[0-9]/);
 }
-
-
-validateForm();
 
 
 

@@ -30,7 +30,7 @@
             return $this->validData;
         }
 
-        public function &getInputDataErrors()
+        public function &getErrors()
         {
             return $this->inputDataErrors;
         }
@@ -93,6 +93,22 @@
         } 
     }
 
+    function writeValidDataToFile(FormData& $formData, $filename) {
+        fwrite($filename, "valid data : \n");
+
+        foreach ($formData->getValidData() as $field => $data) {
+            fwrite($filename, $field . " = " . $data . "\n");
+        }
+    }
+
+    function writeErrorsToFile(FormData& $formData, $filename) {
+        fwrite($filename, "errors : \n");
+
+        foreach ($formData->getErrors() as $field => $data) {
+            fwrite($filename, $field . " = " . $data . "\n");
+        }
+    }
+
     // Main
     $formData = new FormData();
 
@@ -100,14 +116,30 @@
     validateLecturer($_POST['lecturer'], $formData);
     validateDescription($_POST['description'], $formData);
     $formData->addValidField("group", $_POST['group']);
+    $formData->addValidField("credits", $_POST['credits']);
 
 
+    echo "valid data : \n";
     var_dump($formData->getValidData());
     echo '<br>';
-    var_dump($formData->getInputDataErrors());
 
+    echo "errors : \n";
+    var_dump($formData->getErrors());
+    echo '<br>';
 
+    if (!file_exists("./data-output") || !is_dir("./data-output")) {
+        mkdir("./data-output") or die("error : can't create output directory");
+    }
 
+    // because the file doesn't exist we have to open the file in w (write mode)
+    $validData = fopen("data-output/validData.txt", "w") or die("error : can't open file");
+    $errors = fopen("data-output/errors.txt", "w") or die("error : can't open file");
+
+    writeValidDataToFile($formData, $validData);
+    writeErrorsToFile($formData, $errors);
+
+    fclose($validData);
+    fclose($errors);
     ?>
     
 </body>

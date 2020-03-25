@@ -7,18 +7,20 @@
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $formData = json_decode($_POST["data"], true);
 
+        $username = $formData["usernameField"];
+        $password = $formData["passwordField"];
+        $passwordRepeated = $formData["passwordRepeatedField"];
+        
         // error handling and validation
-        $username = isset($formData["username"]) ? testInput($formData["username"]) : "";
-        $password = isset($formData["password"]) ? testInput($formData["password"]) : "";
-        $passwordRepeated = isset($formData["passwordRepeated"]) ? testInput($formData["passwordRepeated"]) : "";
-
+        // TODO
+        
         // build successResponse
         $successResponse["username"] = $username;
         $successResponse["password"] = $password;
         $successResponse["passwordRepeated"] = $passwordRepeated;
     }
     else {
-        $errors[] = 'error : invalid request type';
+        $errors["requestType"] = 'error : invalid request type';
     }
 
     $errorsuccessResponseCode = 400;

@@ -14,9 +14,9 @@ function submitForm(clickEvent) {
     var passwordRepeated = document.getElementById('passwordRepeated').value;
 
     var formData = {    
-        username, 
-        password, 
-        passwordRepeated
+        usernameField: username, 
+        passwordField: password, 
+        passwordRepeatedField: passwordRepeated
     };
 
     console.log("formData :");

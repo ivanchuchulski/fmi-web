@@ -1,0 +1,39 @@
+
+
+#form-heading {
+    width: 200px;
+    border: none;
+    text-align: center;
+    background-color: lightgreen;
+    margin: auto;
+}
+
+#input-form {
+    height: 200px;
+    width: 200px;
+    border: solid 1px black;
+
+    text-align:center;
+    margin: auto;
+}
+
+.input-box {
+    margin-top: 10px;
+}
+
+/* style for  input boxes' placeholders */
+::placeholder {
+    text-indent: 10px;
+}
+
+.submit-button {
+    width: 168.8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-content: center;
+
+    border: none;
+    background-color: lightgreen;
+}
+
+

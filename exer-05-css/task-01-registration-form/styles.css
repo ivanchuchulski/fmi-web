@@ -1,39 +1,91 @@
+html, body {
+    height: 100%;
+}
 
+#registration {
+	width: 225px;
+	height: 225px;
+    margin: 0 auto;
+}
 
 #form-heading {
-    width: 200px;
-    border: none;
-    text-align: center;
-    background-color: lightgreen;
-    margin: auto;
+	height: 10%;
+	width: 100%;
+	margin: auto;
+
+	border: none;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: rgb(90, 190, 23);
+	color: white;
 }
 
 #input-form {
-    height: 200px;
-    width: 200px;
-    border: solid 1px black;
+	box-sizing: border-box;
+	height: 90%;
+	width: 100%;
+	margin: auto;
+    position: relative;
 
-    text-align:center;
-    margin: auto;
+	border: solid 1px black;
+	background-color: rgb(240, 240, 240);
 }
 
-.input-box {
-    margin-top: 10px;
+.input-box,
+.submit-box {
+	width: 75%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#email,
+#firstname,
+#surname,
+#password,
+#passwordRepeated {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	margin: auto;
 }
 
 /* style for  input boxes' placeholders */
-::placeholder {
-    text-indent: 10px;
+input::placeholder {
+	text-indent: 10px;
 }
 
-.submit-button {
-    width: 168.8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    align-content: center;
+#submit-button {
+	display: block;
+	width: 100%;
+	margin: auto;
 
-    border: none;
-    background-color: lightgreen;
+	border: none;
+	background-color: rgb(90, 190, 23);
+	color: white;
 }
 
+/* font-size doesn't work */
+input[value="Регистрация"] {
+	font-family: Arial, Helvetica, sans-serif;
+}
 
+.container {
+    box-sizing: border-box;
+	width: 225px;
+	height: 225px;
+    margin: auto;
+    margin-top: 1px;
+	position: relative;
+	border: 1px solid green;
+}
+
+.centered {
+    margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

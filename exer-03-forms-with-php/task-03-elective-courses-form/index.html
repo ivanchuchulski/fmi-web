@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>ex-03</title>
+	<head>
+		<meta charset="UTF-8" />
+		<title>ex-03</title>
 
-    <style>
-        fieldset > * {
-            position: relative;
-        }
-    </style>
-</head>
-<body>
-    <form method="post" action="add-course.php">
-        <fieldset>
-            <legend>elective course</legend>
-            
-            <label for="course">Course </label>
-            <input type="text" name="course" id="course"><br>
+		<style>
+			fieldset > * {
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<form method="post" action="add-course.php">
+			<fieldset>
+				<legend>elective course</legend>
 
-            <label for="lecturer">Lecturer </label>
-            <input type="text" name="lecturer" id="lecturer"><br>
-            
-            <label for="description">Description </label>
-            <input type="text" name="description" id="description"><br>
+				<label for="course">Course </label>
+				<input type="text" name="course" id="course" /><br />
 
-            <label for="group">Course Type </label>
-            <select name="group" id="group">
-                <option value="Maths">Maths</option>
-                <option value="AMaths">Applied Maths</option>
-                <option value="CSCore">Computer Science Core</option>
-                <option value="CSFund">Computer Science Fundamentals</option>
-			</select><br>
-			
-			<!-- type=number implies only integer values -->
-			<label for="credits">Credits </label>
-			<input type="number" name="credits" id="credits" min="1" max="10"><br>
+				<label for="lecturer">Lecturer </label>
+				<input type="text" name="lecturer" id="lecturer" /><br />
 
-			<input type="submit" value="Submit Course">
-			<input type="reset" value="Reset">
-        </fieldset>
-    </form>
-</body>
+				<label for="description">Description </label>
+				<input type="text" name="description" id="description" /><br />
+
+				<label for="group">Course Type </label>
+				<select name="group" id="group">
+					<option value="Maths">Maths</option>
+					<option value="AMaths">Applied Maths</option>
+					<option value="CSCore">Computer Science Core</option>
+					<option value="CSFund">Computer Science Fundamentals</option> </select
+				><br />
+
+				<!-- type=number implies only integer values -->
+				<label for="credits">Credits </label>
+				<input type="number" name="credits" id="credits" min="1" max="10" /><br />
+
+				<input type="submit" value="Submit Course" />
+				<input type="reset" value="Reset" />
+			</fieldset>
+		</form>
+	</body>
 </html>

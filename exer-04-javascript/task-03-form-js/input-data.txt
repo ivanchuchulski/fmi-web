@@ -1,0 +1,11 @@
+valid
+    username
+        Qwertyu123
+        qwe123_
+        Chuchulski
+
+invalid
+    username 
+        qwe@#
+
+

@@ -1,0 +1,8 @@
+used resourses
+[1] http://www.javascriptlint.com/
+[2] https://barrgroup.com/Embedded-Systems/How-To/Lint-Static-Analysis-Tool
+[3] https://www.sitepoint.com/comparison-javascript-linting-tools/
+[4] https://www.codereadability.com/what-are-javascript-linters/
+[5] https://medium.com/dailyjs/why-you-should-always-use-a-linter-and-or-pretty-formatter-bb5471115a76
+
+

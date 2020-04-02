@@ -3,40 +3,47 @@ html, body {
 }
 
 #registration {
-	width: 225px;
-	height: 225px;
+	width: 368px;
+	height: 347px;
     margin: 0 auto;
 }
 
 #form-heading {
-	height: 10%;
+	height: 40px;
 	width: 100%;
 	margin: auto;
 
 	border: none;
 	text-align: center;
 	text-transform: uppercase;
-	background-color: rgb(90, 190, 23);
+	background-color: rgb(151, 191, 13);
 	color: white;
 }
 
-#input-form {
+h2 {
+	padding: 10px;
+	font-size: 18px;
+}
+
+form {
 	box-sizing: border-box;
-	height: 90%;
+	height: 328px;
 	width: 100%;
 	margin: auto;
     position: relative;
 
-	border: solid 1px black;
 	background-color: rgb(240, 240, 240);
+	border: solid 1px black;
+	/* border-top-style: none; */
 }
 
 .input-box,
 .submit-box {
 	width: 75%;
+	height: 30px;
 	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -49,6 +56,7 @@ html, body {
 	box-sizing: border-box;
 	display: block;
 	width: 100%;
+	height: 100%;
 	margin: auto;
 }
 
@@ -60,10 +68,11 @@ input::placeholder {
 #submit-button {
 	display: block;
 	width: 100%;
+	height: 100%;
 	margin: auto;
 
 	border: none;
-	background-color: rgb(90, 190, 23);
+	background-color: rgb(151, 191, 13);
 	color: white;
 }
 

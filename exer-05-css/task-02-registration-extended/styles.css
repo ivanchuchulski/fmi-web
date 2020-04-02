@@ -1,0 +1,125 @@
+html,
+body {
+    height: 100%;
+}
+
+#registration {
+    width: 368px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+#form-heading {
+    height: 40px;
+    width: 100%;
+    margin: auto;
+
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(151, 191, 13);
+    color: white;
+}
+
+h2 {
+    padding: 10px;
+    font-size: 18px;
+}
+
+form {
+    box-sizing: border-box;
+    height: 450px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+
+    background-color: rgb(240, 240, 240);
+    border: solid 1px black;
+    /* border-top-style: none; */
+}
+
+/* outer divs */
+.input-box,
+.submit-box {
+    width: 75%;
+    height: 30px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#textarea-box {
+    margin: auto;
+    width: 300px;
+    height: 65px;
+}
+
+#license-box, #newsletter-box {
+    width: 350px;
+	height: 40px;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+#submit-button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+    border: none;
+    background-color: rgb(151, 191, 13);
+    color: white;
+}
+
+/* inner input fields */
+#email,
+#firstname,
+#surname,
+#password,
+#passwordRepeated,
+#aboutme {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+#license,
+#newsletter {
+	box-sizing: border-box;
+	/* text-align: center; */
+}
+
+/* style for  input boxes' placeholders */
+input::placeholder {
+    text-indent: 10px;
+}
+
+/* font-size doesn't work */
+input[value="Регистрация"] {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    box-sizing: border-box;
+    width: 225px;
+    height: 225px;
+    margin: auto;
+    margin-top: 1px;
+    position: relative;
+    border: 1px solid green;
+}
+
+.centered {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

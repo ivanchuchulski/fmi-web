@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="registration">
+        <div id="form-heading">
+            <h2>Регистрация</h2>
+        </div>
+        <form action="register.php" method="POST">
+            <div class="input-box">
+                <input type="email" name="email" id="email" placeholder="Имейл"/>
+            </div>
+
+            <div class="input-box">
+                <input type="text" name="firstname" id="firstname" placeholder="Име"/>
+            </div>
+
+            <div class="input-box">
+                <input type="text" name="surname" id="surname" placeholder="Фамилия"/>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" id="password" placeholder="Парола"/>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="passwordRepeated" id="passwordRepeated" placeholder="Повтори парола"/>
+            </div>
+
+            <div id="textarea-box">
+                <textarea id="aboutme" rows="5" cols="35" placeholder="напишете нещо за себе си"></textarea>
+            </div>
+
+            <div id="license-box">
+                <input type="checkbox" name="license" id="license"><label for="license">Съгласен съм с условията</label>
+            </div>
+
+            <div id="newsletter-box">
+                <input type="checkbox" name="newsletter" id="newsletter"><label for="newsletter">Ще получавам бюлетин</label>
+            </div>
+            
+            <div class="submit-box">
+                <input type="submit" value="Регистрация" id="submit-button">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -26,34 +26,49 @@ h2 {
     font-size: 18px;
 }
 
-form {
+#form-box {
     box-sizing: border-box;
-    height: 450px;
+    height: 470px;
     width: 100%;
     margin: auto;
     position: relative;
 
     background-color: rgb(240, 240, 240);
     border: solid 1px black;
-    /* border-top-style: none; */
-}
-
-/* outer divs */
-.input-box,
-.submit-box {
-    width: 75%;
-    height: 30px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    border-top-style: none;
 
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#textarea-box {
+form {
+    width: 100%;
+    height: 100%;
+}
+
+/* outer divs */
+.input-box {
+    width: 75%;
+    height: 30px;
     margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.submit-box {
+    top: 10px;
+    width: 75%;
+    height: 30px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#textarea-box {
     width: 300px;
     height: 65px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #license-box, #newsletter-box {
@@ -61,8 +76,9 @@ form {
 	height: 40px;
 	margin: auto;
 	margin-top: 5px;
-	margin-bottom: 5px;
-	text-align: center;
+    margin-bottom: 5px;
+    
+	text-align: center; 
 }
 
 #submit-button {
@@ -92,8 +108,6 @@ form {
 
 #license,
 #newsletter {
-	box-sizing: border-box;
-	/* text-align: center; */
 }
 
 /* style for  input boxes' placeholders */

@@ -41,11 +41,11 @@ header {
     border: 1px solid black;
 }
 
-li {
+ul[id="navigation"] li {
     border-bottom: 1px solid black;
 }
 
-li a {
+ul[id="navigation"]  li a {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -56,11 +56,11 @@ li a {
     text-decoration: none;
 }
 
-li:last-child {
+ul[id="navigation"]  li:last-child {
     border-bottom: none;
 }
 
-li:hover {
+ul[id="navigation"]  li:hover {
     background-color: rgb(60, 240, 156);
     color: white;
 }

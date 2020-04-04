@@ -41,32 +41,46 @@
                 </p>
                 <p>
                     Към подмножество на linter-ите попадат и инструментите, които само форматират
-                    кода спрямо някакви правила, пример за това е Prettier.
+                    кода спрямо някакви правила, т.е. правят го да изглежда по-красив. Пример за
+                    това е Prettier.
                 </p>
             </section>
             <section id="second-section">
-                <h2>Part1</h2>
+                <h2>Начини за използване на lint инструменти</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos id delectus
-                    similique voluptas eaque atque minima asperiores est quia sed at sapiente,
-                    dolores cupiditate minus impedit blanditiis et sequi.
+                    Съществуват няколко начина за интегрирането на linter-ите в процеса ни на
+                    работа, като например
                 </p>
-                <p>
-                    Necessitatibus consectetur fugit rerum voluptate aspernatur quia delectus
-                    maiores aliquam voluptatem expedita enim quam ratione labore voluptatum
-                    reiciendis doloremque, consequuntur quas. Eligendi inventore nesciunt
-                    voluptatibus unde quos, optio voluptate harum?
-                </p>
-                <p>
-                    Aliquid expedita suscipit eaque rerum, nostrum consectetur tempora porro, facere
-                    quos error incidunt repellat praesentium quidem perferendis voluptas tenetur
-                    natus maxime corrupti eius dolores ab assumenda ut! Dolor, est perspiciatis!
-                </p>
-                <p>
-                    Mollitia minus quam exercitationem debitis, voluptate consequuntur quas aperiam
-                    culpa fugiat maiores unde, nam autem adipisci aliquid praesentium ut blanditiis
-                    perferendis sed libero commodi non. Molestiae unde ratione labore expedita!
-                </p>
+                <ul>
+                    <li>
+                        <p>
+                            <b>самостоятелна програма с CLI : </b>може би най-неудобния вариант, тъй
+                            като изхода, който ще получим няма да е толкова четим и интерактивността
+                            със самия код почти липсва
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>приставка/добавка в IDE или редактор : </b>доста практичен вариант,
+                            подходящ за малки и средни проекти. Начина на работа е като се след
+                            напише някакъв код се изпълнява linter-а, но тъй като се използа
+                            приставка, която е специфична за приложението налице са някои удобства.
+                            Например при красиво изписване на грешките, които са открит, при
+                            кликване върху тях курсорът на редактора се отвежда на мястото на
+                            грешката, показване на потенциални решения на проблема и конфигуриране
+                            на инструмента от настройките на IDE-то.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>като етап от CI  : </b>при използване на continuous
+                            integration(CI) поток на разработка инструменти като linter-и, чисто
+                            форматиращи програми, type checker-и и тестови пакети се изпълняват при
+                            правене на всеки commit от разработчиците. Програмистът се уведомява, ако
+                            някои от тези инструменти върне грешка и той трябва да ги оправи.
+                        </p>
+                    </li>
+                </ul>
             </section>
             <section id="third-section">
                 <h2>Part1</h2>

@@ -12,7 +12,8 @@
             <li><a href="#first-section">Какво е linter?</a></li>
             <li><a href="#second-section">Начини за използване на lint инструменти</a></li>
             <li><a href="#third-section">Какво откриват JavaScript linter-ите?</a></li>
-            <li><a href="#forth-section">Part4</a></li>
+            <li><a href="#forth-section">Представяне на JavaScript Lint</a></li>
+            <li><a href="#cited-literature">Цитирана литература</a></li>
         </ul>
 
         <div id="blogpost">
@@ -145,28 +146,61 @@
                 </ul>
             </section>
             <section id="forth-section">
-                <h2>Part1</h2>
+                <h2>Представяне на JavaScript Lint</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos id delectus
-                    similique voluptas eaque atque minima asperiores est quia sed at sapiente,
-                    dolores cupiditate minus impedit blanditiis et sequi.
+                    JavaScript Lint е инструмент, предназначен за извършване на статичен анализ на
+                    JavaScript код. Неговата разработка е била активна в начало на века, като за
+                    последен път през 2007 година на официалния сайт има някакви новини или
+                    обновления.
+                </p>
+                <figure>
+                    <img
+                        src="img/01-javascript-lint-site.png"
+                        alt="JavaScript Lint website"
+                        width="740"
+                        height="360"
+                    />
+                    <figcaption>Фигура 1. Уеб сайта на JavaScript Lint, секция "News"</figcaption>
+                </figure>
+                <p>
+                    Инструментът е безплатен, с отворен код. От официалния му сайт [1] е възможно да
+                    се изтегли готовия за работа инструмент или архив, съдържащ изходния код. Има
+                    линк към хранилище на Subversion, но не изглежда, че той не е активен към
+                    момента на писането.
                 </p>
                 <p>
-                    Necessitatibus consectetur fugit rerum voluptate aspernatur quia delectus
-                    maiores aliquam voluptatem expedita enim quam ratione labore voluptatum
-                    reiciendis doloremque, consequuntur quas. Eligendi inventore nesciunt
-                    voluptatibus unde quos, optio voluptate harum?
+                    Платформите на които може да се използва са Windows, като не е специфицирана
+                    версията, но най-вероятно към времето на последна активност това е било XP или
+                    Vista. Другият вариант е Mac OS X, където също не е упомената версията на
+                    операционната система.
+                </p>
+            </section>
+            <section id="fifth-section">
+                <h2>Конфигуриране и използване</h2>
+                <p>
+                    Ние ще използваме софтуера JavaScript Lint при версия 0.3.0 за Windows,
+                    използвайки файла jsl-0.3.0-win32.zip, изтеглен от сайта на инструмента[1].
+                    Изпълняваме софтуера под ОС Windows 10.
                 </p>
                 <p>
-                    Aliquid expedita suscipit eaque rerum, nostrum consectetur tempora porro, facere
-                    quos error incidunt repellat praesentium quidem perferendis voluptas tenetur
-                    natus maxime corrupti eius dolores ab assumenda ut! Dolor, est perspiciatis!
+                    Грешките, за които търси могат да се конфигурират по два начина. Единият е
+                    използвайки вградените настройки, а вторият е наличие на конфигурационен файл,
+                    който да бъде подаден като параметър на програмата.
                 </p>
                 <p>
-                    Mollitia minus quam exercitationem debitis, voluptate consequuntur quas aperiam
-                    culpa fugiat maiores unde, nam autem adipisci aliquid praesentium ut blanditiis
-                    perferendis sed libero commodi non. Molestiae unde ratione labore expedita!
+                    JavaScript Lint предлага основно работа чрез конзолен интерфейс. Като основни
+                    параметри са името на конфигурационен файл и файлове с JavaScript код, които да
+                    бъдат прегледани.
                 </p>
+                <figure>
+                    <img
+                        src="img/02-jsl-options.png"
+                        alt="JavaScript Lint CLI options"
+                        width="800"
+                        height="300"
+                    />
+                    <figcaption>Фигура 2. JavaScript Lint CLI опции</figcaption>
+                </figure>
             </section>
             <section id="cited-literature">
                 <h2>Цитирана литература</h2>
@@ -179,32 +213,32 @@
                     <a
                         href="https://barrgroup.com/Embedded-Systems/How-To/Lint-Static-Analysis-Tool"
                         >[2] Nigel Jones, "How to Use Lint for Static Code Analysis", публикуван:
-                        2002-05-01, последно посетен: 2020-05-05</a
+                        2002-05-01, последно посетен: 2020-04-05</a
                     >
                 </p>
                 <p>
                     <a href="https://www.sitepoint.com/comparison-javascript-linting-tools/"
                         >[3] Jani Hartikainen, "A Comparison of JavaScript Linting Tools",
-                        публикуван: 2015-03-05 , последно посетен: 2020-05-05</a
+                        публикуван: 2015-03-05 , последно посетен: 2020-04-05</a
                     >
                 </p>
                 <p>
                     <a href="https://www.codereadability.com/what-are-javascript-linters/"
                         >[4] "What are JavaScript linters?", публикуван: 2015-11-01 , последно
-                        посетен : 2020-05-05</a
+                        посетен : 2020-04-05</a
                     >
                 </p>
                 <p>
                     <a
                         href="https://medium.com/dailyjs/why-you-should-always-use-a-linter-and-or-pretty-formatter-bb5471115a76"
                         >[5] Alberto Gimeno, "Why you should always use a Linter", публикуван:
-                        2017-06-22 , последно посетен : 2020-05-05</a
+                        2017-06-22 , последно посетен : 2020-04-05</a
                     >
                 </p>
                 <p>
                     <a href="https://css-tricks.com/continuous-integration-the-what-why-and-how/"
                         >[6] Jeff Wainwright, "Continuous Integration: The What, Why and How",
-                        публикуван: 2018-10-25 , последно посетен : 2020-05-05</a
+                        публикуван: 2018-10-25 , последно посетен : 2020-04-05</a
                     >
                 </p>
             </section>

@@ -2,16 +2,16 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>JS linters</title>
-        <link rel="stylesheet" href="style.css" />
+        <title>JavaScript Lint</title>
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <header>JS linters</header>
+        <header>JavaScript Lint</header>
 
         <ul id="navigation">
             <li><a href="#first-section">Какво е linter?</a></li>
-            <li><a href="#second-section">Part2</a></li>
-            <li><a href="#third-section">Part3</a></li>
+            <li><a href="#second-section">Начини за използване на lint инструменти</a></li>
+            <li><a href="#third-section">Какво откриват JavaScript linter-ите?</a></li>
             <li><a href="#forth-section">Part4</a></li>
         </ul>
 
@@ -19,11 +19,11 @@
             <section id="first-section">
                 <h2>Какво е linter?</h2>
                 <p>
-                    Linter-ите представляват софтуерни инструменти, които извършват анализ на
-                    изходния код на програмата и помагат за откриване на някои често срещани грешки
-                    и проблеми. Те също така могат да бъдат използвани и за прилагане на конкретни
-                    стилистични правила за писане на код, наложени от дадена организацията (style
-                    guides).
+                    На първо място трябва да кажем, че Linter-ите представляват софтуерни
+                    инструменти, които извършват анализ на изходния код на програмата и помагат за
+                    откриване на някои често срещани грешки и проблеми. Те също така могат да бъдат
+                    използвани и за прилагане на конкретни стилистични правила за писане на код,
+                    наложени от дадена организацията (style guides).
                 </p>
                 <p>
                     Използването на linter помага бързо да се справим с потенциален проблем, дори
@@ -83,30 +83,66 @@
                 </ul>
             </section>
             <section id="third-section">
-                <h2>Какво откриват javascript linter-ите</h2>
+                <h2>Какво откриват JavaScript linter-ите?</h2>
                 <p>
-                    Тъй като javascript е език за програмиране, който се интерпретира, слабо и
+                    Тъй като JavaScript е език за програмиране, който се интерпретира, слабо и
                     динамично типизиран, то нуждата от инструменти, които да ни предпазват от грешки
                     е задължителен. Нека разгледаме някои от най-често срещаните грешки при писане
-                    на javascript код, а именно тези, които linter-ите ни помагат бързо да открием и
+                    на JavaScript код, а именно тези, които linter-ите ни помагат бързо да открием и
                     поправим.
                 </p>
-                <p>
-                    Necessitatibus consectetur fugit rerum voluptate aspernatur quia delectus
-                    maiores aliquam voluptatem expedita enim quam ratione labore voluptatum
-                    reiciendis doloremque, consequuntur quas. Eligendi inventore nesciunt
-                    voluptatibus unde quos, optio voluptate harum?
-                </p>
-                <p>
-                    Aliquid expedita suscipit eaque rerum, nostrum consectetur tempora porro, facere
-                    quos error incidunt repellat praesentium quidem perferendis voluptas tenetur
-                    natus maxime corrupti eius dolores ab assumenda ut! Dolor, est perspiciatis!
-                </p>
-                <p>
-                    Mollitia minus quam exercitationem debitis, voluptate consequuntur quas aperiam
-                    culpa fugiat maiores unde, nam autem adipisci aliquid praesentium ut blanditiis
-                    perferendis sed libero commodi non. Molestiae unde ratione labore expedita!
-                </p>
+                <ul>
+                    <li>
+                        <p>
+                            <b>използване на недекларирана променлива или метод :</b>
+                            предизвиква се неочаквано поведение на програмата. Такива грешки могат
+                            да се открият при наличие на достатъчно добри тестове, но с използването
+                            на lint инструменти идентифицирането се улеснява значително.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>променлива ли метод, който никога не се използва в кода : </b>чрез
+                            откриването и отстраняването на този проблем се премахва ненужен ресурс
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b
+                                >блок от код, който никога не се изпълнява, заради return, continue,
+                                break или throw оператори :
+                            </b>
+                            идентифицира се евентуален проблем със потока на изпълнението на
+                            програмата или ненужен фрагмент от код
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>пропуснати ограждащи скоби на изразите if, for, while : </b>това води
+                            до влошаване на четливостта на кода, особено ако на реда след оператора
+                            има и някакъв друг израз. Потенциално място за бъгове, както и създава
+                            допълнителна работа ако трябва в тялото след оператора да се добави
+                            повече от един израз
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>липсващи break изрази при case случаите на switch оператор : </b>това
+                            е потенциално място за бъгове свързани с потока на изпълнението на
+                            програмата.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>нарушаването на правила, записани в даден style guide : </b>
+                            непостоянството в начина, по който пишем кода го прави нечетлив и
+                            изглежда неприятно. При налагане на единен стил, се подобрява
+                            четливостта и се създава чувството за колективно притежание но кода
+                            (code ownership), т.е. четейки код, който не е писан от теб, но изглежда
+                            стилистично като твоя
+                        </p>
+                    </li>
+                </ul>
             </section>
             <section id="forth-section">
                 <h2>Part1</h2>
@@ -130,6 +166,46 @@
                     Mollitia minus quam exercitationem debitis, voluptate consequuntur quas aperiam
                     culpa fugiat maiores unde, nam autem adipisci aliquid praesentium ut blanditiis
                     perferendis sed libero commodi non. Molestiae unde ratione labore expedita!
+                </p>
+            </section>
+            <section id="cited-literature">
+                <h2>Цитирана литература</h2>
+                <p>
+                    <a href="http://www.javascriptlint.com/"
+                        >[1] сайт на JavaScript Lint, публикуван:, последно посетен: 2020-04-05</a
+                    >
+                </p>
+                <p>
+                    <a
+                        href="https://barrgroup.com/Embedded-Systems/How-To/Lint-Static-Analysis-Tool"
+                        >[2] Nigel Jones, "How to Use Lint for Static Code Analysis", публикуван:
+                        2002-05-01, последно посетен: 2020-05-05</a
+                    >
+                </p>
+                <p>
+                    <a href="https://www.sitepoint.com/comparison-javascript-linting-tools/"
+                        >[3] Jani Hartikainen, "A Comparison of JavaScript Linting Tools",
+                        публикуван: 2015-03-05 , последно посетен: 2020-05-05</a
+                    >
+                </p>
+                <p>
+                    <a href="https://www.codereadability.com/what-are-javascript-linters/"
+                        >[4] "What are JavaScript linters?", публикуван: 2015-11-01 , последно
+                        посетен : 2020-05-05</a
+                    >
+                </p>
+                <p>
+                    <a
+                        href="https://medium.com/dailyjs/why-you-should-always-use-a-linter-and-or-pretty-formatter-bb5471115a76"
+                        >[5] Alberto Gimeno, "Why you should always use a Linter", публикуван:
+                        2017-06-22 , последно посетен : 2020-05-05</a
+                    >
+                </p>
+                <p>
+                    <a href="https://css-tricks.com/continuous-integration-the-what-why-and-how/"
+                        >[6] Jeff Wainwright, "Continuous Integration: The What, Why and How",
+                        публикуван: 2018-10-25 , последно посетен : 2020-05-05</a
+                    >
                 </p>
             </section>
         </div>

@@ -8,37 +8,27 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h2 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-p {
-    text-align: justify;
-}
-
-header {
+#myheader {
     position: fixed;
     margin: auto;
+    width: 375px;
     height: 50px;
 
     font-size: 40px;
 }
 
 #navigation {
-    display: block;
     position: fixed;
     top: 80px;
+
     width: 375px;
-
-    background-color: rgb(200, 200, 200);
-
-    position: fixed;
+    display: block;
     margin: 0;
     padding: 0;
 
     list-style-type: none;
 
+    background-color: rgb(200, 200, 200);
     border: 1px solid black;
 }
 
@@ -46,7 +36,7 @@ ul[id="navigation"] li {
     border-bottom: 1px solid black;
 }
 
-ul[id="navigation"]  li a {
+ul[id="navigation"] li a {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -57,16 +47,17 @@ ul[id="navigation"]  li a {
     text-decoration: none;
 }
 
-ul[id="navigation"]  li:last-child {
+ul[id="navigation"] li:last-child {
     border-bottom: none;
 }
 
-ul[id="navigation"]  li:hover {
+ul[id="navigation"] li:hover {
     background-color: rgb(60, 240, 156);
     color: white;
 }
 
 #blogpost {
+    display: block;
     position: absolute;
     top: 50px;
     right: 10px;
@@ -74,14 +65,21 @@ ul[id="navigation"]  li:hover {
     margin-right: 100px;
 }
 
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: justify;
+}
 
 img {
     display: block;
-    /* width: 75%; */
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  figcaption {
+}
+
+figcaption {
     text-align: center;
-  }
+}

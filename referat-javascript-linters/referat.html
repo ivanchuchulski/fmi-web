@@ -16,6 +16,7 @@
             <li><a href="#fifth-section">Конфигуриране</a></li>
             <li><a href="#cited-literature">Цитирана литература</a></li>
             <li><a href="#figure-list">Списък с фигури</a></li>
+            <li><a href="#tables-list">Списък с таблици</a></li>
         </ul>
 
         <div id="blogpost">
@@ -200,7 +201,8 @@
                 </ul>
                 <p>
                     В примера грешката е, че променливата sum не е дефинирана, а е използвана в
-                    пресмятането. Инструментът не показва никакви грешки и при други примери.
+                    пресмятането. Инструментът не показва и предпреждение за изпуснати скоби около
+                    for цикъла.
                 </p>
             </section>
             <section id="fifth-section">
@@ -228,6 +230,75 @@
                         height="300"
                     />
                     <figcaption>Фигура 3. JavaScript Lint CLI опции</figcaption>
+                </figure>
+            </section>
+            <section id="sixth-section">
+                <h2>Опции</h2>
+                <p>
+                    Опциите на инструмента се задават в конфигурационния файл, който се подава при
+                    изпълнение. В конфигурационния файл по подразбиране са представени всички
+                    възможни опции на JavaScript Lint, както и как да се активират. Нека разгледаме
+                    някои от категориите опции
+                </p>
+                <figure id="table-01">
+                    <table id="mytable">
+                        <colgroup>
+                            <col style="width: 230px;" />
+                            <col style="width: 550px;" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th><p>предупреждения(warnings)</p></th>
+                                <th><p>обяснение</p></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>+no_return_value</td>
+                                <td>
+                                    <p>
+                                        функцията не връща резултат от всичките си потоци на
+                                        изпъление
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>+equal_as_assign</td>
+                                <td>
+                                    <p>объркване на операторите = и ==</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>+redeclared_var</td>
+                                <td><p>редеклариране на идентификатор</p></td>
+                            </tr>
+                            <tr>
+                                <td>+missing_semicolon</td>
+                                <td><p>пропусканати точка и запетия</p></td>
+                            </tr>
+                            <tr>
+                                <td>+unreachable_code</td>
+                                <td><p>недостижим код</p></td>
+                            </tr>
+                            <tr>
+                                <td>+missing_break</td>
+                                <td><p>пропуснат break във switch</p></td>
+                            </tr>
+                            <tr>
+                                <td>+block_without_braces</td>
+                                <td>
+                                    <p>блок от код, който не е ограден със фигурни скоби { }</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>+nested_comment </td>
+                                <td><p>коментар, вложен в друг коментар</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <figcaption>
+                        Таблица 1. Опции за предупреждения в JavaScript Lint 
+                    </figcaption>
                 </figure>
             </section>
             <section id="cited-literature">
@@ -280,6 +351,12 @@
                 </p>
                 <p>
                     <a href="#figure-03">Фигура 3. JavaScript Lint CLI опции</a>
+                </p>
+            </section>
+            <section id="tables-list">
+                <h2>Списък с таблици</h2>
+                <p>
+                    <a href="#table-01">Таблица 1. Опции за предупреждения в JavaScript Lint</a>
                 </p>
             </section>
         </div>

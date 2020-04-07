@@ -1,10 +1,21 @@
 
-function sumUpTo(sumUpperLimit) {
-    for (let i = 0; i < sumUpperLimit; i++)
-        sum += i;
+function dayOfTheWeek(day) {
+    switch (day) {
+        case 'Friday':
+            console.log('prepate for the weekend!')
+            break
 
-    
-    return sum;
+        case 'Saturday':
+        case 'Sunday':
+            console.log('weekend')
+            break
+
+        default:
+            console.log('weekday')
+            break
+    }
 }
 
-sumUpTo(10);
+myDay = 'Monday'
+
+dayOfTheWeek(myDay)

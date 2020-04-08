@@ -1,7 +1,7 @@
 function dayOfTheWeek(day) {
     switch (day) {
         case 'Friday':
-            console.log('prepate for the weekend!');
+            console.log('prepare for the weekend!');
             break;
 
         case 'Saturday':

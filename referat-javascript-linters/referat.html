@@ -192,7 +192,7 @@
                     <figure id="figure-02">
                         <img
                             src="img/02-jsl-online.png"
-                            alt="JavaScript Lint CLI options"
+                            alt="JavaScript Lint online"
                             width="800"
                             height="370"
                         />
@@ -341,6 +341,47 @@
                     <figcaption>
                         Таблица 1. Опциите на JavaScript Lint
                     </figcaption>
+                </figure>
+            </section>
+            <section id="seventh-section">
+                <h2>Примерна употреба</h2>
+                <p>
+                    Ще направим един прост пример, за да покажем основните опции на JavaScript Lint.
+                    За целта ще използваме наш конфигурационен файл, който е копие на този по
+                    подразбиране с тази разлика, че са включени предупрежденията за използване на
+                    недеклариран идентификатор(променлива, метод), нуждата от ограждащи скоби около
+                    оператор и сме дефинирали console като глобален обект.
+                </p>
+                <p>
+                    Файла с JavaScript код, който ще тестваме показва различни съобщения в за
+                    различните дни от седмицата, като обаче са допуснати някои грешки.
+                </p>
+                <figure id="code-fragment-01">
+                    <code id="code-fragment">
+                        function dayOfTheWeek(day) { switch (day) { case 'Friday':
+                        console.log('prepare for the weekend!'); break; case 'Saturday': case
+                        'Sunday': console.log('weekend, yeah!'); default: console.log('weekday,
+                        work!'); break; } } myDay = 'Sunday'; dayOfTheWeek(myDay)
+                    </code>
+                    <img
+                        src="img/04-code-frament.png"
+                        alt="code-fragment"
+                        width="800"
+                        height="325"
+                    />
+
+                    <figcaption>
+                        Код 1. Тествания JavaScript файл
+                    </figcaption>
+                </figure>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe consequatur qui
+                    fugit mollitia tempore odit voluptatibus in, quis cum aut nemo sapiente dicta
+                    est recusandae deserunt eos, magni eaque laudantium!
+                </p>
+                <figure>
+                    <img src="img/05-jsl-output.png" alt="jsl-output" width="800" height="325" />
+                    <figcaption>Фигура 4. Изход от JavaScript Lint</figcaption>
                 </figure>
             </section>
             <section id="cited-literature">

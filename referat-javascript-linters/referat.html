@@ -14,6 +14,8 @@
             <li><a href="#third-section">Какво открива JavaScript Lint?</a></li>
             <li><a href="#fourth-section">Начини на използване </a></li>
             <li><a href="#fifth-section">Конфигуриране</a></li>
+            <li><a href="#sixth-section">Опции</a></li>
+            <li><a href="#seventh-section">Примерна употреба</a></li>
             <li><a href="#cited-literature">Цитирана литература</a></li>
             <li><a href="#figure-list">Списък с фигури</a></li>
             <li><a href="#tables-list">Списък с таблици</a></li>
@@ -349,46 +351,100 @@
                     Ще направим един прост пример, за да покажем основните опции на JavaScript Lint.
                     За целта ще използваме наш конфигурационен файл, който е копие на този по
                     подразбиране с тази разлика, че са включени предупрежденията за използване на
-                    недеклариран идентификатор(променлива, метод), нуждата от ограждащи скоби около
-                    оператор и сме дефинирали console като глобален обект.
+                    недеклариран идентификатор (променлива, метод или клас), нуждата от ограждащи
+                    скоби около оператор и сме дефинирали console като глобален обект.
                 </p>
                 <p>
                     Файла с JavaScript код, който ще тестваме показва различни съобщения в за
                     различните дни от седмицата, като обаче са допуснати някои грешки.
                 </p>
-                <figure id="code-fragment-01">
-                    <code id="code-fragment">
-                        function dayOfTheWeek(day) { switch (day) { case 'Friday':
-                        console.log('prepare for the weekend!'); break; case 'Saturday': case
-                        'Sunday': console.log('weekend, yeah!'); default: console.log('weekday,
-                        work!'); break; } } myDay = 'Sunday'; dayOfTheWeek(myDay)
-                    </code>
+                <figure id="figure-04">
                     <img
-                        src="img/04-code-frament.png"
+                        src="img/04-code-fragment.png"
                         alt="code-fragment"
                         width="800"
                         height="325"
                     />
-
                     <figcaption>
-                        Код 1. Тествания JavaScript файл
+                        Фигура 4. Тествания JavaScript файл
+                    </figcaption>
+                </figure>
+                <p>Изпълняваме програмата локално с Node.js и наблюдаваме следния изход</p>
+                <figure id="figure-05">
+                    <img src="img/05-code-output.png" alt="code-ouput" width="800" height="200" />
+                    <figcaption>
+                        Фигура 5. Резултата от изпълнението на файла
                     </figcaption>
                 </figure>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe consequatur qui
-                    fugit mollitia tempore odit voluptatibus in, quis cum aut nemo sapiente dicta
-                    est recusandae deserunt eos, magni eaque laudantium!
+                    Това което се случва, е че викаме функцията с аргумент, който трябва да
+                    предизвика съобщение за почивен ден, но виждаме и още един ред, който е
+                    съобщението за работен ден.
                 </p>
-                <figure>
-                    <img src="img/05-jsl-output.png" alt="jsl-output" width="800" height="325" />
-                    <figcaption>Фигура 4. Изход от JavaScript Lint</figcaption>
+                <p>
+                    Преди да търсим грешката с дебъгване ще пуснем JavaScript Lint от Windows
+                    PowerShell като използваме вградения терминален емулатор в Visual Studio Code.
+                    Също така вместо да пишем командата директно на реда, предварително сме я
+                    написали и запазили в batch файл.
+                </p>
+                <figure id="figure-06">
+                    <img src="img/06-jsl-output.png" alt="jsl-output" width="800" height="325" />
+                    <figcaption>Фигура 6. Изход от JavaScript Lint</figcaption>
                 </figure>
+                <p>
+                    Batch скрипта сме написали изрично така, че на първия ред от изхода се вижда
+                    каква команда и с какви аргументи се е изпълнила. Следват два реда, които
+                    показват информация за версията и автора на инструмента.
+                </p>
+                <p>
+                    След това виждаме името на файла, който е бил сканиран и една след друга се
+                    изписани намерените грешки. На първо място е причината за грешката, която
+                    наблюдавахме в изхода от програмата. Това е пропуснат <code>break</code>, който
+                    трябва да е след <code>console.log()</code> на 9-ти ред.
+                </p>
+                <p>
+                    Другите предупреждения, които виждаме са за пропусната <code>;</code> след
+                    извикването на функцията <code>dayOfTheWeek()</code> на 19-ти ред. Също така
+                    JavaScript Lint ни предупреждава и за неявното деклариране на променливата
+                    <code>myDay</code> на 17-ти ред, както и използването ѝ при викането на
+                    функцията на 19-ти ред.
+                </p>
+                <h4>След оправяне на грешките</h4>
+                <p>
+                    Нека добавим <code>break</code> на 10-ти ред, да дефинираме правилно
+                    променливата и да поставим <code>;</code> след извикването на функцията.
+                </p>
+                <figure id="figure-07">
+                    <img
+                        src="img/07-code-fragment-fixed.png"
+                        alt="js-file-fixed"
+                        width="800"
+                        height="325"
+                    />
+                    <figcaption>Фигура 7. Поправен JavaScript файл</figcaption>
+                </figure>
+                <p>
+                    Сега да изпълним кода с Node и JavaScript Lint да видим дали всичко е наред.
+                </p>
+                <figure id="figure-08">
+                    <img
+                        src="img/08-code-and-jsl-output-fixed.png"
+                        alt="code-and-jsl-output"
+                        width="800"
+                        height="200"
+                    />
+                    <figcaption>Фигура 8. Изход от изпълнението на файла и JavaScript Lint</figcaption>
+                </figure>
+                <p>
+                    Както виждаме от Фигура 8. изходът на програмата е правилен, а инструмента не открива никакви проблеми.
+                </p>
             </section>
             <section id="cited-literature">
                 <h2>Цитирана литература</h2>
                 <p>
                     <a href="http://www.javascriptlint.com/"
-                        >[1] сайт на JavaScript Lint, публикуван:, последно посетен: 2020-04-05</a
+                        >[1] сайт на JavaScript Lint, публикуван: неизвестно, последно посетен:
+                        2020-04-05</a
                     >
                 </p>
                 <p>
@@ -401,12 +457,12 @@
                 <p>
                     <a href="https://www.sitepoint.com/comparison-javascript-linting-tools/"
                         >[3] Jani Hartikainen, "A Comparison of JavaScript Linting Tools",
-                        публикуван: 2015-03-05 , последно посетен: 2020-04-05</a
+                        публикуван: 2015-03-05, последно посетен: 2020-04-05</a
                     >
                 </p>
                 <p>
                     <a href="https://www.codereadability.com/what-are-javascript-linters/"
-                        >[4] "What are JavaScript linters?", публикуван: 2015-11-01 , последно
+                        >[4] "What are JavaScript linters?", публикуван: 2015-11-01, последно
                         посетен : 2020-04-05</a
                     >
                 </p>
@@ -414,7 +470,7 @@
                     <a
                         href="https://medium.com/dailyjs/why-you-should-always-use-a-linter-and-or-pretty-formatter-bb5471115a76"
                         >[5] Alberto Gimeno, "Why you should always use a Linter", публикуван:
-                        2017-06-22 , последно посетен : 2020-04-05</a
+                        2017-06-22, последно посетен : 2020-04-05</a
                     >
                 </p>
                 <p>
@@ -434,6 +490,21 @@
                 </p>
                 <p>
                     <a href="#figure-03">Фигура 3. JavaScript Lint CLI опции</a>
+                </p>
+                <p>
+                    <a href="#figure-04">Фигура 4. Тествания JavaScript файл</a>
+                </p>
+                <p>
+                    <a href="#figure-05">Фигура 5. Резултата от изпълнението на файла</a>
+                </p>
+                <p>
+                    <a href="#figure-06">Фигура 6. Изход от JavaScript Lint</a>
+                </p>
+                <p>
+                    <a href="#figure-07">Фигура 7. Поправен JavaScript файл</a>
+                </p>
+                <p>
+                    <a href="#figure-08">Фигура 8. Изход от изпълнението на файла и JavaScript Lint</a>
                 </p>
             </section>
             <section id="tables-list">

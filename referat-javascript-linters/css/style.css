@@ -105,14 +105,9 @@ figure {
     position: relative;
 }
 
-#code-fragment {
-    display: block;
-    width: 800px;
-    padding: 10px;
-    margin: 0 auto;
+code {
+    padding: 7px;
 
     background-color: #eee;
-    white-space: pre-wrap;
     font-family: monospace;
-    text-align: left;
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>ex-03</title>
+
+        <style>
+            fieldset > * {
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="POST" action="add-course.php">
+            <fieldset>
+                <legend>elective course</legend>
+
+                <label for="lecturer">Lecturer </label>
+                <input type="text" name="lecturer" id="lecturer" /><br />
+
+                <label for="course">Course </label>
+                <input type="text" name="course" id="course" /><br />
+
+                <label for="description">Description </label>
+                <input type="text" name="description" id="description" /><br />
+
+                <input type="submit" value="Submit Course" />
+                <input type="reset" value="Reset" />
+            </fieldset>
+        </form>
+    </body>
+</html>

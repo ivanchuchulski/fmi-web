@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>hw-01</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="container">
+            <h2>Потребителски панел</h2>
+
+            <h4>
+                За да се запишете в този курс създайте нов акаунт или влезте в съществуващ такъв
+            </h4>
+
+            <div id="registration-form">
+                <div id="registration-heading">
+                    <h2>Регистрация</h2>
+                </div>
+
+                <form action="register.php" method="POST">
+                    <div class="input-box">
+                        <input type="text" name="reg-username" id="reg-username" placeholder="Потребителско име" />
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" name="email" id="email" placeholder="E-mail" />
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" name="reg-password" id="reg-password" placeholder="Парола" />
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" name="passwordRepeated" id="passwordRepeated" placeholder="Потвърди паролата" />
+                    </div>
+
+                    <div id="register-box">
+                        <input type="submit" value="Регистрация" id="register-button" />
+                    </div>
+                </form>
+            </div>
+            <div id="login-form">
+                <div id="login-heading">
+                    <h2>Вход</h2>
+                </div>
+
+                <form action="login.php" method="POST">
+                    <div class="input-box">
+                        <input type="text" name="login-username" id="login-username" placeholder="Потребителско име" />
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" name="login-password" id="login-password" placeholder="Парола" />
+                    </div>
+
+                    <div id="remember-me-box">
+                        <input type="checkbox" name="remember-me" id="remember-me"><label for="remember-me">Запомняне?</label>
+                    </div>
+
+                    <div id="enter-box">
+                        <input type="submit" value="Влез" id="enter-button" />
+                    </div>
+
+                    <div id="forgotten-box">
+                        <a href="" target="_blank" rel="noopener noreferrer">Забравена парола</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

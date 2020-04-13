@@ -1,63 +1,74 @@
 body {
     /* font-family: Arial, Helvetica, sans-serif; */
-
 }
 
 #container {
     width: 676px;
     height: 440px;
     margin: 10px auto;
-    
+
     background-color: #ececec;
-    border: 1px solid  #34495e;
+    border: 1px solid #34495e;
 }
 
-h2#main-heading {
+h2[id="main-heading"] {
     margin-left: 33px;
     font-size: 22px;
     color: #34495e;
 }
 
-h4#subheading {
+h4[id="subheading"] {
     margin-left: 33px;
     font-weight: normal;
     color: black;
 }
 
-#registration-form, 
-#login-form {
+div[id="registration-form"] {
+    float: left;
     width: 314px;
     height: 320px;
-}
-
-#registration-form {
-    float: left;
     margin-left: 18px;
     margin-right: 1px;
 
     /* background-color: aqua; */
 }
 
-#login-form {
+div[id="login-form"] {
     float: right;
+    width: 314px;
+    height: 320px;
     margin-right: 18px;
 
     background-color: #34495e;
 }
 
-#registration-heading {
+div[id="registration-heading"] {
+    width: 285px;
+    height: 35px;
+
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
     color: #34495e;
     font-size: 12px;
     text-transform: uppercase;
 }
 
-#login-heading {
+div[id="login-heading"] {
+    width: 285px;
+    height: 35px;
+
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
     color: white;
     font-size: 12px;
     text-transform: uppercase;
 }
 
-#registration-heading, #login-heading, .input-box {
+div[class="input-box"] {
     width: 285px;
     height: 35px;
     margin: auto;
@@ -65,13 +76,13 @@ h4#subheading {
     padding-bottom: 10px;
 }
 
-#email,
-#reg-username,
-#reg-password,
-#passwordRepeated,
-#login-username,
-#login-password,
-#about-me {
+input[id="email"],
+input[id="reg-username"],
+input[id="reg-password"],
+input[id="passwordRepeated"],
+input[id="login-username"],
+input[id="login-password"],
+input[id="about-me"] {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -79,16 +90,15 @@ h4#subheading {
     margin: auto;
 }
 
-#register-box {
+div[id="register-box"] {
     box-sizing: border-box;
     float: right;
     margin-right: 14px;
     width: 156px;
     height: 35px;
-
 }
 
-#register-button {
+input[id="register-button"] {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -100,12 +110,15 @@ h4#subheading {
     font-weight: bold;
 }
 
-#register-button:hover {
+input[id="register-button"]:hover {
     background-color: #34495e;
     color: white;
 }
 
-#remember-me-box {
+/* resourse used for custom checkbox design : 
+    https://www.w3schools.com/howto/howto_css_custom_checkbox.asp 
+*/
+div[id="remember-me-box"] {
     float: left;
     width: 120px;
     height: 35px;
@@ -113,17 +126,68 @@ h4#subheading {
     font-size: 16px;
 }
 
-#remember-me {
-    background-color: #34495e;
-    border: 3px solid white;
-    
+div[id="remember-me-box"] {
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-label#remember-me-label {
+label[id="remember-me-label"] {
+    margin-left: 22px;
     color: white;
 }
 
-#enter-box {
+/* Hide the browser's default checkbox */
+div[id="remember-me-box"] input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+span[id='custom-checkbox'] {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 19px;
+    width: 19px;
+
+    border: 2px solid white;
+    background-color: #34495e;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+span[id='custom-checkbox']:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+div[id="remember-me-box"] input:checked ~ #custom-checkbox:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+div[id="remember-me-box"] #custom-checkbox:after {
+    left: 4px;
+    top: 0.35px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+div[id="enter-box"] {
     box-sizing: border-box;
     float: right;
     width: 120px;
@@ -132,7 +196,7 @@ label#remember-me-label {
     margin-right: 14.5px;
 }
 
-#enter-button {
+input[id="enter-button"] {
     width: 100%;
     height: 100%;
 
@@ -143,12 +207,12 @@ label#remember-me-label {
     font-weight: bold;
 }
 
-#enter-button:hover {
+input[id="enter-button"]:hover {
     background-color: white;
     color: #34495e;
 }
 
-#forgotten-box {
+div[id="forgotten-password-box"] {
     clear: both;
     float: right;
     width: 120px;
@@ -156,7 +220,9 @@ label#remember-me-label {
     margin-right: 14.5px;
 }
 
-form a {
+div[id="forgotten-password-box"] a {
     color: white;
 }
+
+
 

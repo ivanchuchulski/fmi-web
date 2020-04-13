@@ -119,16 +119,14 @@ input[id="register-button"]:hover {
     https://www.w3schools.com/howto/howto_css_custom_checkbox.asp 
 */
 div[id="remember-me-box"] {
+    position: relative;
     float: left;
     width: 120px;
     height: 35px;
+    margin-top: 10px;
     margin-left: 14.5px;
-    font-size: 16px;
-}
 
-div[id="remember-me-box"] {
-    position: relative;
-    cursor: pointer;
+    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -136,6 +134,7 @@ div[id="remember-me-box"] {
 }
 
 label[id="remember-me-label"] {
+    cursor: pointer;
     margin-left: 22px;
     color: white;
 }
@@ -144,7 +143,7 @@ label[id="remember-me-label"] {
 div[id="remember-me-box"] input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
+    cursor: none;
     height: 0;
     width: 0;
 }
@@ -162,15 +161,15 @@ span[id='custom-checkbox'] {
     background-color: #34495e;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
+/* Create the custom checkbox tick (hidden when not checked) */
 span[id='custom-checkbox']:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-/* Show the checkmark when checked */
-div[id="remember-me-box"] input:checked ~ #custom-checkbox:after {
+/* Show the checkbox tick when checked */
+div[id="remember-me-box"] input[id='remember-me']:checked ~ span[id='custom-checkbox']:after {
     display: block;
 }
 
@@ -193,6 +192,7 @@ div[id="enter-box"] {
     width: 120px;
     height: 35px;
 
+    margin-top: 10px;
     margin-right: 14.5px;
 }
 
@@ -217,6 +217,8 @@ div[id="forgotten-password-box"] {
     float: right;
     width: 120px;
     height: 35px;
+    
+    margin-top: 10px;
     margin-right: 14.5px;
 }
 

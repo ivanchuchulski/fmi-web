@@ -1,38 +1,39 @@
 <?php
-	//? how to create  db from here
-	// $username = 'root';
-	// $password = '';
-	// $dbname = 'www_task_1';
+	class Database 
+	{
+		private $connection;
 
-	// $create_db = "CREATE DATABASE www_task_01";
-	// ...
-	// echo "db created\n";
+		public function __construct()
+		{
+			$host = 'localhost';
+			$username = 'root';
+			$password = '';
+			$dbname = 'www_task_1';
+		
+			$this->connection = new PDO('mysql:host=localhost; dbname=www_task_1', 'root', '');
+		}
 
-	$connection = new PDO('mysql:host=localhost; dbname=www_task_1', 'root', '');
+		public function createTable($createCommand) {
+			// or use exec()
+			$statement = $this->connection->query($createCommand);
 
-	$create_table_electives = "CREATE TABLE electives (
-			id INT AUTO_INCREMENT PRIMARY KEY,
-			title VARCHAR(128),
-			description VARCHAR(1024),
-			lecturer VARCHAR(128)
-			);";
+			echo "table created" . "<br>";
+		}
+		
+		public function insertIntoTable($insertCommand, $valuesToInsert) {
+			$statement = $this->connection->prepare($insertCommand);
 
-	$add_values = "INSERT INTO electives (title, description, lecturer)
-					VALUES (:electiveTitle, :electiveDescription, :electiveLecturer);";
+			foreach ($valuesToInsert as $value) {
+				$statement->execute($value);	
+			}
 
-	
-	$statement = $connection->query($create_table_electives);
-	echo "table created\n";
+			echo "values added" . '<br>';
+		}
 
-	$statement = $connection->prepare($add_values);
+	}
 
-	$statement->execute([	'electiveTitle' => "Programming with Go",
-							'electiveDescription' =>"Let's learn Go",
-							'electiveLecturer' => "Nikolay Batchiyski"]);
+	// function insertCourse(FormData &$formData) {
+		
+	// }
 
-	$statement->execute([	'electiveTitle' => "AKDU",
-							'electiveDescription' =>"Let's Graduate",
-							'electiveLecturer' => "Svetlin Ivanov"]);
-
-	echo "values added\n";
 ?>

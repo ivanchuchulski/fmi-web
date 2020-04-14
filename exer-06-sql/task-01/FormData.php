@@ -23,12 +23,12 @@ class FormData
 
     public function addValidField($fieldName, $fieldData)
     {
-        $this->validData[$fieldName] = formatInput($fieldData);
+        $this->validData[$fieldName] = $this->formatInput($fieldData);
     }
 
     public function addError($fieldName, $errorMessage)
     {
-        $this->inputDataErrors[$fieldName] = formatInput($errorMessage);
+        $this->inputDataErrors[$fieldName] = $this->formatInput($errorMessage);
     }
 
     private function formatInput($formField) {

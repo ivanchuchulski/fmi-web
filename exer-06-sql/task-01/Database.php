@@ -30,10 +30,20 @@
 			echo "values added" . '<br>';
 		}
 
+		
+		public function insertCourse(FormData &$formData) {
+			$insertCommand = <<<EOT
+			INSERT INTO electives (title, description, lecturer)
+			VALUES (:electiveTitle, :electiveDescription, :electiveLecturer);
+			EOT;
+
+			// var_dump($formData->getValidData());
+			// var_dump($formData->getErrors());
+			
+			$statement = $this->connection->prepare($insertCommand);
+			$statement->execute($formData->getValidData());
+		}
 	}
 
-	// function insertCourse(FormData &$formData) {
-		
-	// }
 
 ?>

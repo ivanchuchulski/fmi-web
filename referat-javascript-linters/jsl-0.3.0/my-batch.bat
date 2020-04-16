@@ -1,1 +1,0 @@
-jsl -conf "my-conf.conf" -process "my-test.js" pauseatend

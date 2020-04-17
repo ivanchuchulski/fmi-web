@@ -4,6 +4,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
 
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -21,15 +22,17 @@ body {
     position: fixed;
     top: 80px;
 
-    width: 375px;
+    max-width: 375px;
     display: block;
     margin: 0;
     padding: 0;
 
-    list-style-type: none;
-
+    
     background-color: rgb(200, 200, 200);
     border: 1px solid black;
+    
+    list-style-type: none;
+    font-size: 14px;
 }
 
 ul[id="navigation"] li {
@@ -40,7 +43,7 @@ ul[id="navigation"] li a {
     box-sizing: border-box;
     display: block;
     width: 100%;
-    padding: 6px 12px;
+    padding: 6px 8px;
     margin: 2px 4px;
 
     color: black;
@@ -58,11 +61,13 @@ ul[id="navigation"] li:hover {
 
 #blogpost {
     display: block;
-    position: absolute;
+    position: relative;
     top: 50px;
     right: 10px;
+    /* max-width: 900px; */
     margin-left: 450px;
     margin-right: 100px;
+    padding-bottom: 10px;
 }
 
 h2 {
@@ -74,11 +79,6 @@ p {
     text-align: justify;
 }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 figcaption {
     text-align: center;
@@ -103,6 +103,12 @@ td {
 
 figure {
     position: relative;
+}
+
+figure img {
+    display: block;
+    margin: auto;
+    /* object-fit: contain; */
 }
 
 code {

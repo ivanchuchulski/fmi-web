@@ -35,11 +35,11 @@ body {
     font-size: 14px;
 }
 
-ul[id="navigation"] li {
+#navigation li {
     border-bottom: 1px solid black;
 }
 
-ul[id="navigation"] li a {
+#navigation li a {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -50,11 +50,11 @@ ul[id="navigation"] li a {
     text-decoration: none;
 }
 
-ul[id="navigation"] li:last-child {
+#navigation li:last-child {
     border-bottom: none;
 }
 
-ul[id="navigation"] li:hover {
+#navigation li:hover {
     background-color: rgb(60, 240, 156);
     color: white;
 }
@@ -70,40 +70,40 @@ ul[id="navigation"] li:hover {
     padding-bottom: 10px;
 }
 
-h2 {
+#blogpost h2 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-p {
+#blogpost p {
     text-align: justify;
 }
 
-
-figcaption {
-    text-align: center;
-}
-
-table,
-th,
-td {
+#blogpost table,
+#blogpost th,
+#blogpost td {
     border: 1px solid black;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
 }
 
-thead p {
+#blogpost thead p {
     text-align: center;
 }
 
-td {
+#blogpost td {
     padding-left: 5px;
 }
 
-figure {
+#blogpost figure {
     position: relative;
 }
+
+figcaption {
+    text-align: center;
+}
+
 
 figure img {
     display: block;

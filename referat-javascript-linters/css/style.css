@@ -125,7 +125,10 @@ figure img {
     display: block;
     margin: auto;
 
-    object-fit: scale-down;
+    max-width: 100%;
+    height: auto;
+
+    /* object-fit: scale-down; */
 }
 
 code {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>hw-02</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    </head>
+    <body>
+        <section id="registration">
+            <header id="form-heading">
+                <h2>Регистрация</h2>
+            </header>
+            <form action="backend/register.php" method="POST" id="form-box">
+                <div class="input-box">
+                    <label for="firstname">Собствено име</label>
+                    <input type="text" name="firstname" id="firstname" />
+                </div>
+
+                <div class="input-box">
+                    <label for="surname">Фамилия</label>
+                    <input type="text" name="surname" id="surname" />
+                </div>
+
+                <div class="input-box">
+                    <label for="facultynum">Факултетен номер</label>
+                    <input
+                        type="text"
+                        name="facultynum"
+                        id="facultynum"
+                        pattern="[1-9]{5, 8}"
+                        title="faculty number is between 5 and 8 digits"
+                    />
+                </div>
+
+                <div class="submit-box">
+                    <input type="submit" value="Регистрация" id="submit-button" />
+                </div>
+            </form>
+        </section>
+    </body>
+</html>

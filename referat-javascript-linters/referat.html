@@ -6,24 +6,31 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <header id="myheader">JavaScript Lint</header>
+        <header id="myheader">
+            <h4>
+                JavaScript Lint
+            </h4>
+        </header>
 
-        <ul id="navigation">
-            <li><a href="#first-section">1. Какво е linter?</a></li>
-            <li><a href="#second-section">2. Представяне на JavaScript Lint</a></li>
-            <li><a href="#third-section">3. Какво открива JavaScript Lint?</a></li>
-            <li><a href="#fourth-section">4. Начини на използване </a></li>
-            <li><a href="#fifth-section">5. Конфигуриране</a></li>
-            <li><a href="#sixth-section">6. Опции</a></li>
-            <li><a href="#seventh-section">7. Примерна употреба</a></li>
-            <li><a href="#eigth-section">8. Сравнение със съвременните инструменти</a></li>
-            <li><a href="#ninth-section">9. Заключение</a></li>
-            <li><a href="#cited-literature">Цитирана литература</a></li>
-            <li><a href="#figure-list">Списък с фигури</a></li>
-            <li><a href="#tables-list">Списък с таблици</a></li>
-        </ul>
+        <nav id="navigation">
+            <ul>
+                <li><a href="#first-section">1. Какво е linter?</a></li>
+                <li><a href="#second-section">2. Представяне на JavaScript Lint</a></li>
+                <li><a href="#third-section">3. Какво открива JavaScript Lint?</a></li>
+                <li><a href="#fourth-section">4. Начини на използване </a></li>
+                <li><a href="#fifth-section">5. Конфигуриране</a></li>
+                <li><a href="#sixth-section">6. Опции</a></li>
+                <li><a href="#seventh-section">7. Примерна употреба</a></li>
+                <li><a href="#eigth-section">8. Сравнение със съвременните инструменти</a></li>
+                <li><a href="#ninth-section">9. Заключение</a></li>
+                <li><a href="#cited-literature">Цитирана литература</a></li>
+                <li><a href="#figure-list">Списък с фигури</a></li>
+                <li><a href="#tables-list">Списък с таблици</a></li>
+                <li><a href="#tables-list">Списък с примерен програмен код</a></li>
+            </ul>
+        </nav>
 
-        <div id="blogpost">
+        <article id="blogpost">
             <section id="first-section">
                 <h2>Какво е linter?</h2>
                 <p>
@@ -51,7 +58,7 @@
                     Като подмножество на linter програмите можем да причислим и инструментите, които
                     само форматират кода спрямо някакви правила, т.е. правят го да изглежда
                     по-красив. Пример за това е Prettier, който главно е предназначен за HTML, CSS и
-                    JavaScript.
+                    JavaScript.<a href="#cited-04">[4]</a>, <a href="#cited-05">[5]</a>
                 </p>
             </section>
             <section id="second-section">
@@ -73,10 +80,9 @@
                 </figure>
                 <p>
                     Инструментът е безплатен, с отворен код. От официалния му сайт
-                    <a href="http://www.javascriptlint.com/">[1]</a> е възможно да се изтегли
-                    готовия за работа инструмент или архив, съдържащ изходния код. Има линк към
-                    хранилище на Subversion, но не изглежда, че той не е активен към момента на
-                    писането.
+                    <a href="#cited-01">[1]</a> е възможно да се изтегли готовия за работа
+                    инструмент или архив, съдържащ изходния код. Има линк към хранилище на
+                    Subversion, но не изглежда, че той не е активен към момента на писането.
                 </p>
                 <p>
                     Платформите на които може да се използва са Windows, като не е специфицирана
@@ -91,8 +97,8 @@
                     Тъй като JavaScript е език за програмиране, който се интерпретира, слабо и
                     динамично типизиран, то нуждата от инструменти, които да ни предпазват от грешки
                     е задължителен. Нека разгледаме някои от най-често срещаните грешки при писане
-                    на JavaScript код, а именно тези, които JavaScript Lint ни помага бързо да
-                    открием и поправим <a href="http://www.javascriptlint.com/">[1]</a>.
+                    на JavaScript код и тези, които JavaScript Lint ни помага бързо да открием и
+                    поправим <a href="#cited-01">[1]</a>.
                 </p>
                 <ul>
                     <li>
@@ -150,8 +156,9 @@
             <section id="fourth-section">
                 <h2>Начини на използване</h2>
                 <p>
-                    Съществуват няколко начина за интегрирането на JavaScript Lint в процеса ни на
-                    работа, като например<a href="http://www.javascriptlint.com/">[1]</a>.
+                    Съществуват няколко начина, според документацията на JavaScript Lint
+                    <a href="#cited-01">[1]</a>, по които можем да интегрираме в процеса ни на
+                    работа.
                 </p>
                 <ul>
                     <li>
@@ -191,22 +198,8 @@
                     <li>
                         <p>
                             <b>уеб вариант : </b>можем да отбележим и наличието на уеб вариант на
-                            инструмента на сайта му<a href="http://www.javascriptlint.com/">[1]</a>.
-                            За съжаление установихме, че той не работи правилно и не дава никакъв
-                            изход.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <b>като стъпка от CI/CD : </b>подход, който става все по-популярен
-                            напоследък. Идеята е процесът на разработка да бъде споходен от
-                            множество помощни дейности, които да се погрижат кода да е максимално
-                            близко до работно състояние. инструмента на сайта му. Отново за
-                            съжаление, тъй като инструментът не се разработва активно, той не се
-                            предлага като опция от актуалните CI системи.<a
-                                href="https://css-tricks.com/continuous-integration-the-what-why-and-how/"
-                                >[6]</a
-                            >
+                            инструмента на сайта му<a href="#cited-01">[1]</a>. За съжаление
+                            установихме, че той не работи правилно и не дава никакъв изход.
                         </p>
                     </li>
                 </ul>
@@ -220,10 +213,20 @@
                     <figcaption>Фигура 2. JavaScript Lint online</figcaption>
                 </figure>
                 <p>
-                    Примера, който използваме е във файла
-                    <a href="code-samples/jsl-online-test.js">jsl-online-test.js</a> Грешката е, че
-                    променливата sum не е дефинирана, а е използвана в пресмятането. Инструментът не
-                    показва и предпреждение за изпуснати скоби около for цикъла.
+                    Използван е примерния <a href="#code-01">Код 1.</a>. Грешката е, че променливата
+                    sum не е дефинирана, а е използвана в пресмятането. Инструментът не показва и
+                    предпреждение за изпуснати скоби около for цикъла.
+                </p>
+                <p>
+                    Като друг подход, който става все по-популярен напоследък е
+                    <b>като стъпка от CI/CD</b>. Идеята е процесът на разработка да бъде споходен от
+                    множество помощни дейности, които да се погрижат кода да е максимално близко до
+                    работно състояние. инструмента на сайта му. Отново за съжаление, тъй като
+                    JavaScript Lint не се разработва активно, той не се предлага като опция от
+                    актуалните CI системи.<a
+                        href="https://css-tricks.com/continuous-integration-the-what-why-and-how/"
+                        >[6]</a
+                    >
                 </p>
             </section>
             <section id="fifth-section">
@@ -374,9 +377,9 @@
                     скоби около оператор и сме дефинирали console като глобален обект.
                 </p>
                 <p>
-                    Файлът, който ще тестваме е <a href="code-samples/my-test.js">my-test.js</a>. В
-                    него има една функция, която показва различни съобщения в за различните дни от
-                    седмицата, като обаче са допуснати някои грешки.
+                    Файлът, който ще тестваме е <a href="#code-04">Код 4.</a>. В него има една
+                    функция, която показва различни съобщения в за различните дни от седмицата, като
+                    обаче са допуснати някои грешки.
                 </p>
                 <figure id="figure-04">
                     <img
@@ -402,11 +405,11 @@
                     съобщението за работен ден.
                 </p>
                 <p>
-                    Преди да търсим грешката с дебъгване ще пуснем JavaScript Lint от Windows
+                    Преди да търсим грешката с дебъгване, ще пуснем JavaScript Lint от Windows
                     PowerShell като използваме вградения терминален емулатор в Visual Studio Code.
                     Също така вместо да пишем командата директно на реда, предварително сме я
                     написали и запазили в batch файла
-                    <a href="code-samples/my-batch.bat">my-batch.bat</a>.
+                    <a href="#code-02">Код 2.</a>.
                 </p>
                 <figure id="figure-06">
                     <img src="img/06-jsl-output.png" alt="jsl-output" width="800" height="365" />
@@ -414,8 +417,10 @@
                 </figure>
                 <p>
                     Batch скрипта сме написали изрично така, че на първия ред от изхода се вижда
-                    каква команда и с какви аргументи се е изпълнила. Следват два реда, които
-                    показват информация за версията и автора на инструмента.
+                    каква команда и с какви аргументи се е изпълнила. Подаваме конфигурационен файл
+                    <a href="#code-03">Код 3.</a> и файл с JavaScript
+                    <a href="#code-04">Код 4.</a> за преглеждане от инструмента. Следват два реда,
+                    които показват информация за версията и автора на инструмента.
                 </p>
                 <p>
                     След това виждаме името на файла, който е бил сканиран и една след друга се
@@ -434,7 +439,7 @@
                 <p>
                     Нека добавим <code>break</code> на 10-ти ред, да дефинираме правилно
                     променливата и да поставим <code>;</code> след извикването на функцията. Това е
-                    файлът <a href="code-samples/my-test-fixed.js">my-test-fixed.js</a>
+                    файлът <a href="#code-5">Код 5.</a>
                 </p>
                 <figure id="figure-07">
                     <img
@@ -460,12 +465,15 @@
                     </figcaption>
                 </figure>
                 <p>
-                    Както виждаме от Фигура 8. изходът на програмата е правилен, а инструмента не
+                    Както виждаме от Фигура 8. изходът на програмата е правилен, а инструментът не
                     открива никакви проблеми.
                 </p>
             </section>
             <section id="eigth-section">
-                <h2>Сравнение на JavaScript Lint със съвременните инструменти</h2>
+                <h2>
+                    Сравнение на JavaScript Lint със съвременните инструменти
+                    <a href="#cited-03">[3]</a>
+                </h2>
                 <p>
                     Ако трябва да погледнем как стоят нещата сега, то за съжаление JavaScript Lint
                     изглежда остарял и не особено практичен за използване в все по-големите и
@@ -504,26 +512,31 @@
             <section id="cited-literature">
                 <h2>Цитирана литература</h2>
                 <p>
-                    <a href="http://www.javascriptlint.com/"
+                    <a href="http://www.javascriptlint.com/" id="cited-01"
                         >[1] сайт на JavaScript Lint, публикуван: неизвестно, последно посетен:
-                        2020-04-05</a
+                        2020-04-05 i</a
                     >
                 </p>
                 <p>
                     <a
                         href="https://barrgroup.com/Embedded-Systems/How-To/Lint-Static-Analysis-Tool"
+                        id="cited-02"
                         >[2] Nigel Jones, "How to Use Lint for Static Code Analysis", публикуван:
                         2002-05-01, последно посетен: 2020-04-05</a
                     >
                 </p>
                 <p>
-                    <a href="https://www.sitepoint.com/comparison-javascript-linting-tools/"
+                    <a
+                        href="https://www.sitepoint.com/comparison-javascript-linting-tools/"
+                        id="cited-03"
                         >[3] Jani Hartikainen, "A Comparison of JavaScript Linting Tools",
                         публикуван: 2015-03-05, последно посетен: 2020-04-05</a
                     >
                 </p>
                 <p>
-                    <a href="https://www.codereadability.com/what-are-javascript-linters/"
+                    <a
+                        href="https://www.codereadability.com/what-are-javascript-linters/"
+                        id="cited-04"
                         >[4] "What are JavaScript linters?", публикуван: 2015-11-01, последно
                         посетен : 2020-04-05</a
                     >
@@ -531,12 +544,15 @@
                 <p>
                     <a
                         href="https://medium.com/dailyjs/why-you-should-always-use-a-linter-and-or-pretty-formatter-bb5471115a76"
+                        id="cited-05"
                         >[5] Alberto Gimeno, "Why you should always use a Linter", публикуван:
                         2017-06-22, последно посетен : 2020-04-05</a
                     >
                 </p>
                 <p>
-                    <a href="https://css-tricks.com/continuous-integration-the-what-why-and-how/"
+                    <a
+                        href="https://css-tricks.com/continuous-integration-the-what-why-and-how/"
+                        id="cited-06"
                         >[6] Jeff Wainwright, "Continuous Integration: The What, Why and How",
                         публикуван: 2018-10-25 , последно посетен : 2020-04-05</a
                     >
@@ -577,6 +593,44 @@
                     <a href="#table-01">Таблица 1. Опциите на JavaScript Lint</a>
                 </p>
             </section>
-        </div>
+            <section id="code-fragments-list">
+                <h2>Списък с примерен програмен код</h2>
+                <p>
+                    <a
+                        href="https://gist.github.com/ivanchuchulski/5024340534d0dd59d8009134442d5f94"
+                        id="code-01"
+                        >Код 1. Тест на онлайн инструмента</a
+                    >
+                </p>
+                <p>
+                    <a
+                        href="https://gist.github.com/ivanchuchulski/c71065ecd48486d8741702b10fae726d"
+                        id="code-02"
+                        >Код 2. Batch файл</a
+                    >
+                </p>
+                <p>
+                    <a
+                        href="https://gist.github.com/ivanchuchulski/72d9a85d7eb1edcc78dd83ebe6d53a62"
+                        id="code-03"
+                        >Код 3. Конфигурационен файл за JavaScript Lint</a
+                    >
+                </p>
+                <p>
+                    <a
+                        href="https://gist.github.com/ivanchuchulski/7c2b572054b70b1b81060b7724579c56"
+                        id="code-04"
+                        >Код 4. Тест на JavaScript Lint</a
+                    >
+                </p>
+                <p>
+                    <a
+                        href="https://gist.github.com/ivanchuchulski/b1f2bca9d16909acb437777058faaee8"
+                        id="code-05"
+                        >Код 5. Поправен тест на JavaScript Lint</a
+                    >
+                </p>
+            </section>
+        </article>
     </body>
 </html>

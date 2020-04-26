@@ -11,23 +11,36 @@ body {
 
 #myheader {
     position: fixed;
-    margin: auto;
-    width: 375px;
+    width: 25%;
     height: 50px;
+    
+    max-width: 350px;
 
-    font-size: 40px;
+    text-align: center;
+}
+
+#myheader h4 {
+    margin: auto;
+    width: 100%;
+    height: 75%;
+    font-size: 30px;
 }
 
 #navigation {
     position: fixed;
+    display: block;
     top: 80px;
 
-    max-width: 375px;
+    height: fit-content;
+    width: 25%;
+    max-width: 350px;
+}
+
+#navigation ul {
     display: block;
     margin: 0;
     padding: 0;
 
-    
     background-color: rgb(200, 200, 200);
     border: 1px solid black;
     
@@ -35,11 +48,11 @@ body {
     font-size: 14px;
 }
 
-ul[id="navigation"] li {
+#navigation li {
     border-bottom: 1px solid black;
 }
 
-ul[id="navigation"] li a {
+#navigation li a {
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -50,11 +63,11 @@ ul[id="navigation"] li a {
     text-decoration: none;
 }
 
-ul[id="navigation"] li:last-child {
+#navigation li:last-child {
     border-bottom: none;
 }
 
-ul[id="navigation"] li:hover {
+#navigation li:hover {
     background-color: rgb(60, 240, 156);
     color: white;
 }
@@ -63,52 +76,59 @@ ul[id="navigation"] li:hover {
     display: block;
     position: relative;
     top: 50px;
-    right: 10px;
-    /* max-width: 900px; */
-    margin-left: 450px;
-    margin-right: 100px;
+
+    margin-left: 30%;
+    margin-right: 75px;
+
     padding-bottom: 10px;
 }
 
-h2 {
+#blogpost h2 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-p {
+#blogpost p {
     text-align: justify;
 }
 
-
-figcaption {
-    text-align: center;
-}
-
-table,
-th,
-td {
+#blogpost table,
+#blogpost th,
+#blogpost td {
     border: 1px solid black;
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
 }
 
-thead p {
+#blogpost thead p {
     text-align: center;
 }
 
-td {
+#blogpost td {
     padding-left: 5px;
 }
 
-figure {
+#blogpost figure {
     position: relative;
+}
+
+figcaption {
+    text-align: center;
+}
+
+figure {
+    display: block;
 }
 
 figure img {
     display: block;
     margin: auto;
-    /* object-fit: contain; */
+
+    max-width: 100%;
+    height: auto;
+
+    /* object-fit: scale-down; */
 }
 
 code {

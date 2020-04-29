@@ -4,7 +4,7 @@
     $errors = [];   
 
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        echo "errror : use post method";
+        echo "error : use post method";
         return;
     }
 
@@ -28,13 +28,13 @@
 
     if ($response["success"]) {
         echo '<h1>Successful registration!</h1>';
+        echo '<a href="../index.html">Go to registration!</a>';
     }
     else {
-        echo '<h1>error : unsuccessful registration!</h1> <br />';
+        echo '<h1>error : unsuccessful registration</h1> <br />';
         var_dump($errors);
         echo '<br />';
 
+        echo '<a href="../index.html">Go to registration!</a>';
     }
-
-
 ?>

@@ -13,12 +13,24 @@
             <form action="backend/register.php" method="POST" id="form-box">
                 <div class="input-box">
                     <label for="firstname">Собствено име</label>
-                    <input type="text" name="firstname" id="firstname" />
+                    <input
+                        type="text"
+                        name="firstname"
+                        id="firstname"
+                        pattern="[A-Za-z]{1, 50}"
+                        required
+                    />
                 </div>
 
                 <div class="input-box">
                     <label for="surname">Фамилия</label>
-                    <input type="text" name="surname" id="surname" />
+                    <input
+                        type="text"
+                        name="surname"
+                        id="surname"
+                        pattern="[A-Za-z]{1, 50}"
+                        required
+                    />
                 </div>
 
                 <div class="input-box">
@@ -28,7 +40,7 @@
                         name="facultynum"
                         id="facultynum"
                         pattern="[1-9]{5, 8}"
-                        title="faculty number is between 5 and 8 digits"
+                        required
                     />
                 </div>
 

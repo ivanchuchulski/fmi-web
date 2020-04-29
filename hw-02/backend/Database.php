@@ -40,12 +40,12 @@
             }
         }
 
-        public function isUserRegistered($facultynum)
+        public function isUserRegistered(array& $formFields)
         {
             try {
-                $sql = "INSERT INTO users (firstname, surname, facultynum) VALUES(:firstname, :surname, :facultynum);";
+                $sql = "";
                 $insertStatement = $this->connection->prepare($sql);
-                $insertStatement->execute($data);
+                $insertStatement->execute();
 
                 return array("success" => true);
             } 

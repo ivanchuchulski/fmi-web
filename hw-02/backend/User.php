@@ -13,8 +13,8 @@
             echo "user created" . "<br>";
         }
 
-        public function registerUser(string $firstname, string $surname, int $facultyNum) {
-            $query = $this->database->insert(array("firstname" => $firstname, "surname" => $surname, "facultynum" => $facultyNum));
+        public function registerUser(array& $formFields) {
+            $query = $this->database->insert($formFields);
         
             if ($query["success"]) {
                 return array("success" => true);

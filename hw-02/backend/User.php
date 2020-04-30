@@ -10,7 +10,8 @@
 
         public function __construct() {
             $this->database = new Database();
-            echo "user created" . "<br>";
+
+            echo '<h1>user created' . '</h1>';
         }
 
         public function registerUser(array& $formFields) {
@@ -21,6 +22,19 @@
             } 
             else {
                 return array("success" => false, "error" => $query["error"]);
+            }
+        }
+
+        public function isUserRegistered(array& $formFields)
+        {
+            $query = $this->database->selectUserByFacultynum($formFields['facultynum']);
+
+            $user = $query->fetch(PDO::FETCH_ASSOC);
+
+//            var_dump($user); echo '<br>';
+
+            if(!empty($user)) {
+                throw new Exception('error : user already registered');
             }
         }
     }

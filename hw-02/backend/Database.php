@@ -36,33 +36,33 @@
             catch (PDOException $exception) {
                 echo "Connection failed: " . $exception->getMessage();
 
-                return array("success" => false, "error" => $e->getMessage());
+                return array("success" => false, "error" => $exception->getMessage());
             }
         }
 
-        public function isUserRegistered(array& $formFields)
+        public function selectUserByFacultynum(string& $facultynum)
         {
             try {
-                $sql = "";
-                $insertStatement = $this->connection->prepare($sql);
-                $insertStatement->execute();
+                $sql = "SELECT * FROM users WHERE facultynum=:facultynum;";
+                $selectStatement = $this->connection->prepare($sql);
+                $selectStatement->execute(array("facultynum" => $facultynum));
 
-                return array("success" => true);
+                return $selectStatement;
             } 
             catch (PDOException $exception) {
-                echo "Connection failed: " . $exception->getMessage();
-
-                return array("success" => false, "error" => $e->getMessage());
+                echo '<h1>error : connection failed: ' . $exception->getMessage() . '</h1>';
+                die;
             }
         }
 
         private function initialize($host, $database, $user, $password) {
             try {
                 $this->connection = new PDO("mysql:host=$host;dbname=$database", $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-                echo "db created" . "<br>";
+                echo '<h1>db created' . '</h1>';
             } 
             catch(PDOException $exception) {
-                echo "Connection failed: " . $exception->getMessage();
+                echo '<h1>error : connection failed: ' . $exception->getMessage() . '</h1>';
+                die;
             }
         }
     }

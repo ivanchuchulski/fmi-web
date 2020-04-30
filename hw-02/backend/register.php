@@ -13,17 +13,15 @@ function registerUser()
 		$user = new User();
 
 		// TODO : check if the user is already registered
+		$user->isUserRegistered($formFields);
 
 		$user->registerUser($formFields);
 
-		echo '<h1>successful registration : </h1><br/>';
-
-		echo '<a href="../index.html">Go back to registration</a>';
+		echo '<h1>successful registration : ' . '<a href="../index.html">Go back to registration</a></h1>';
 	}
 	catch (Exception $exception) {
-		echo '<h1>unsuccessful registration : ' . $exception->getMessage() . '</h1><br/>';
-
-		echo '<a href="../index.html">Try to go back to registration</a>';
+		echo '<h1>unsuccessful registration : ' . $exception->getMessage() . '</h1>';
+		echo '<h1><a href="../index.html">Try to go back to registration</a></h1>';
 	}
 }
 
@@ -85,9 +83,6 @@ function getSurname () : string {
 	$PATTERN_SURNAME = "/[A-Za-z]{{$LOWER_LIMIT_SURNAME},{$UPPER_LIMIT_SURNAME}}/";
 
 	$surname = $_POST['surname'];
-
-	echo $surname . '<br>';
-	echo $PATTERN_SURNAME . '<br>';
 
 	if (!$surname) {
 		throw new Exception( "error : surname is required");

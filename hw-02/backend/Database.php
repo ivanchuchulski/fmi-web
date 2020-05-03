@@ -26,8 +26,7 @@
                 return $result;
             }
             catch (PDOException $exception) {
-				echo '<h1>error : connection failed: ' . $exception->getMessage() . '</h1>';
-				die;
+				throw $exception;
             }
         }
 
@@ -40,19 +39,16 @@
                 return $selectStatement;
             }
             catch (PDOException $exception) {
-                echo '<h1>error : connection failed: ' . $exception->getMessage() . '</h1>';
-                die;
+				throw $exception;
             }
         }
 
         private function initialize($host, $database, $user, $password) {
             try {
                 $this->connection = new PDO("mysql:host=$host;dbname=$database", $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-                echo '<h1>db created' . '</h1>';
             }
             catch(PDOException $exception) {
-                echo '<h1>error : connection failed: ' . $exception->getMessage() . '</h1>';
-                die;
+				throw $exception;
             }
         }
     }

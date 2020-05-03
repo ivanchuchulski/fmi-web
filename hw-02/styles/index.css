@@ -17,7 +17,7 @@ body {
     border: none;
     text-align: center;
     text-transform: uppercase;
-    background-color: rgb(151, 191, 13);
+    background-color: rgb(103, 51, 199);
     color: white;
 }
 
@@ -31,7 +31,7 @@ body {
     display: block;
     position: relative;
 
-    height: 270px;
+    height: 350px;
     width: 100%;
     
     margin: auto;
@@ -43,13 +43,23 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+label#errorsLabel {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-size: 17px;
+    text-align: center;
+    color: red;
+}
+
 
 .input-box {
     width: 75%;
     height: 45px;
     margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 input#firstname,
@@ -78,7 +88,7 @@ input#facultynum {
     margin: auto;
 
     border: none;
-    background-color: rgb(151, 191, 13);
+    background-color: rgb(103, 51, 199);
     color: white;
 }
 

@@ -2,16 +2,10 @@
     require_once "Database.php";
 
     class User {
-//        private $firstname;
-//        private $surname;
-//        private $facultyNum;
-
         private $database;
 
         public function __construct() {
             $this->database = new Database();
-
-            echo '<h1>user created' . '</h1>';
         }
 
         public function addUserData(array& $formFields) {

@@ -3,14 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <title>hw-02</title>
-        <link rel="stylesheet" type="text/css" href="styles/style.css" />
+        <link rel="stylesheet" type="text/css" href="styles/index.css" />
+        <script defer src="script/registration.js"></script>
     </head>
     <body>
         <section id="registration">
             <header id="form-heading">
                 <h2>Регистрация</h2>
             </header>
-            <form action="backend/register.php" method="POST" id="form-box">
+            <form id="form-box">
+                <label id="errorsLabel"></label>
                 <div class="input-box">
                     <label for="firstname">Собствено име</label>
                     <input

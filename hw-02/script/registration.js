@@ -31,13 +31,14 @@ function validateFirstname() {
     let firstname = document.getElementById('firstname').value;
 
     if (firstname === '') {
-        throw 'js error : first name is required';
-    }
-    else if (!firstname.match(firstnamePattern)) {
-        throw 'js error : first name must contain only letters and be between 2 and 50 symbols';
+        throw 'error : first name is required';
     }
 
-    return firstname;
+    if (!firstname.match(firstnamePattern)) {
+        throw 'error : first name must contain only letters and be between 2 and 50 symbols';
+    }
+    
+    return formatInput(firstname);
 }
 
 function validateSurname() {
@@ -48,11 +49,12 @@ function validateSurname() {
     if (surname === '') {
         throw 'error : surname is required';
     }
-    else if (!surname.match(surnamePattern)) {
+
+    if (!surname.match(surnamePattern)) {
         throw 'error : surnname must contain only letters and be between 2 and 50 symbols';
     }
 
-    return surname;
+    return formatInput(surname);
 }
 
 function validateFacultynum() {
@@ -63,13 +65,42 @@ function validateFacultynum() {
     if (facultynum === '') {
         throw 'error : facultynum is required';
     }
-    else if (!facultynum.match(facultynumPattern)) {
+
+    if (!facultynum.match(facultynumPattern)) {
         throw 'error : faculty number must contain between 5 and 8 digits';
     }
 
-    return facultynum;
+    return formatInput(facultynum);
 }
 
+function formatInput(formField) {
+    formField = trimTrailingWhitespace(formField);
+    formField = removeSlashes(formField);
+    formField = removeHTMLSpecialCharacters(formField);
+    
+    return formField;
+}
+
+function trimTrailingWhitespace(str) {
+    return str.trim();
+}
+
+function removeSlashes(str) {
+    return str.replace(/\//g, '');
+}
+
+function removeHTMLSpecialCharacters(str) {
+
+    let htmlSpecialCharactersMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+    
+      return str.replace(/[&<>"']/g, function(symbol) { return htmlSpecialCharactersMap[symbol]; });
+}
 
 function sendAjaxRequest(url, method, data) {
     let xhr = new XMLHttpRequest();

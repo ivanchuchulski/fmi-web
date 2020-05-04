@@ -12,7 +12,7 @@ function submitForm(clickEvent) {
     let surname = document.getElementById('surname').value;
     let facultynum = document.getElementById('facultynum').value;
 
-    var formData = {    
+    var formData = { 
         firstname: firstname, 
         surname: surname, 
         facultynum: facultynum

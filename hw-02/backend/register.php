@@ -48,7 +48,6 @@ function getFormFields(): array {
 }
 
 function getFirstname() {
-	//	TODO : make the regex use utf-8 strings
 	$LOWER_LIMIT_FIRSTNAME = 2;
 	$UPPER_LIMIT_FIRSTNAME = 50;
 	$PATTERN_FIRSTNAME = "/[A-Za-z]{{$LOWER_LIMIT_FIRSTNAME},{$UPPER_LIMIT_FIRSTNAME}}/";

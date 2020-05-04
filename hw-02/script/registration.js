@@ -6,23 +6,70 @@
 })();
 
 function submitForm(clickEvent) {
-    clickEvent.preventDefault();
+    try {
+        clickEvent.preventDefault();
+
+        let formData = {firstname: null, surname, facultynum: null};
+
+        formData['firstname'] = validateFirstname();
+        formData['surname'] = validateSurname();
+        formData['facultynum'] = validateFacultynum();
+        
+        console.log("formData :");
+        printObject(formData);
+
+        sendAjaxRequest('backend/register.php', 'POST', `formData=${JSON.stringify(formData)}`);
+    }
+    catch (exception) {
+        displayErrors(exception);
+    }
+}
+
+function validateFirstname() {
+    const firstnamePattern = new RegExp(/^[A-Za-z]{2,50}$/);
 
     let firstname = document.getElementById('firstname').value;
+
+    if (firstname === '') {
+        throw 'js error : first name is required';
+    }
+    else if (!firstname.match(firstnamePattern)) {
+        throw 'js error : first name must contain only letters and be between 2 and 50 symbols';
+    }
+
+    return firstname;
+}
+
+function validateSurname() {
+    const surnamePattern = new RegExp(/^[A-Za-z]{2,50}$/);
+
     let surname = document.getElementById('surname').value;
+
+    if (surname === '') {
+        throw 'error : surname is required';
+    }
+    else if (!surname.match(surnamePattern)) {
+        throw 'error : surnname must contain only letters and be between 2 and 50 symbols';
+    }
+
+    return surname;
+}
+
+function validateFacultynum() {
+    const facultynumPattern = new RegExp(/^[0-9]{5,8}$/);
+
     let facultynum = document.getElementById('facultynum').value;
 
-    var formData = { 
-        firstname: firstname, 
-        surname: surname, 
-        facultynum: facultynum
-    };
+    if (facultynum === '') {
+        throw 'error : facultynum is required';
+    }
+    else if (!facultynum.match(facultynumPattern)) {
+        throw 'error : faculty number must contain between 5 and 8 digits';
+    }
 
-    // console.log("formData :");
-    // printObject(formData);
-
-    sendAjaxRequest('backend/register.php', 'POST', `formData=${JSON.stringify(formData)}`);
+    return facultynum;
 }
+
 
 function sendAjaxRequest(url, method, data) {
     let xhr = new XMLHttpRequest();
@@ -38,18 +85,20 @@ function requestHandler(xhr) {
     let response = JSON.parse(xhr.responseText);
     
     if (response.success) {
-        // console.log("response : ");
-        // printObject(response);
-        
-        window.location = 'success.html';
+        displaySuccessPage('success.html');
     }
     else {
-        // console.log("errors : ");
-        // printObject(response);
-
-        let errors = document.getElementById('errorsLabel');
-        errors.innerHTML = response.error;
+        displayErrors(response.error);
     }
+}
+
+function displaySuccessPage(pageURL) {
+    window.location = pageURL;
+}
+
+function displayErrors(error) {
+    let errors = document.getElementById('errorsLabel');
+    errors.innerHTML = error; 
 }
 
 function printObject(object) {

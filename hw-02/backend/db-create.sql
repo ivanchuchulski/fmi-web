@@ -8,6 +8,10 @@ USE `62167_ivan_chuchulski`;
 CREATE TABLE users (
   firstname VARCHAR(255),
   surname VARCHAR(255),
+  major VARCHAR(255),
+  course INT,
+  studentGroup INT,
+  motivation VARCHAR(255),
   facultynum INT NOT NULL,
   PRIMARY KEY (facultynum)
 );

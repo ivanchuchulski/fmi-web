@@ -36,9 +36,13 @@ function getFormFields(): array {
 	try {
 		$formFields = array();
 
-		$formFields['firstname'] = getFirstname();
-		$formFields['surname'] = getSurname();
+		$formFields['firstname'] = validateTextField('firstname', 2, 50);
+		$formFields['surname'] = validateTextField('surname', 2, 50);
+		$formFields['major'] = validateTextField('major', 1, 5);
+		$formFields['course'] = validateNumberField('course', 1);
+		$formFields['studentGroup'] = validateNumberField('group', 1);
 		$formFields['facultynum'] = getFacultynum();
+		$formFields['motivation'] = getMotivation();
 
 		return $formFields;
 	}
@@ -47,74 +51,73 @@ function getFormFields(): array {
 	}
 }
 
-function getFirstname() {
-	$LOWER_LIMIT_FIRSTNAME = 2;
-	$UPPER_LIMIT_FIRSTNAME = 50;
-	$PATTERN_FIRSTNAME = "/[A-Za-z]{{$LOWER_LIMIT_FIRSTNAME},{$UPPER_LIMIT_FIRSTNAME}}/";
+function validateTextField ($nameOfTheField, $lowerLimit, $upperLimit) {
+	$pattern = "/^[A-Za-z]{{$lowerLimit},{$upperLimit}}$/";
 
 	$formData = json_decode($_POST["formData"], true);
-	$firstname = $formData['firstname'];
+	$textField = $formData[$nameOfTheField];
 
-	if (!$firstname) {
-		throw new Exception("error : first name is required");
+	if (!$textField) {
+		throw new Exception("error : ${nameOfTheField} is required");
 	}
 
-	if (strlen($firstname) < $LOWER_LIMIT_FIRSTNAME) {
-		throw new Exception("error : first name is below min length");
+	if (!preg_match($pattern, $textField)) {
+		throw new Exception("error : ${nameOfTheField} must contain only letters");
 	}
 
-	if (strlen($firstname) > $UPPER_LIMIT_FIRSTNAME) {
-		throw new Exception("error : first name exceeds max length");
-	}
-
-	if (!preg_match($PATTERN_FIRSTNAME, $firstname)) {
-		throw new Exception("error : first name must contain only letters");
-	}
-
-	return formatInput($firstname);
+	return formatInput($textField);
 }
 
-function getSurname(): string {
-	//	TODO : make the regex use utf-8 strings
-	$LOWER_LIMIT_SURNAME = 2;
-	$UPPER_LIMIT_SURNAME = 50;
-	$PATTERN_SURNAME = "/[A-Za-z]{{$LOWER_LIMIT_SURNAME},{$UPPER_LIMIT_SURNAME}}/";
+function validateNumberField ($nameOfTheField, $limit) {
+	$pattern = "/^[1-9]{{$limit}}$/";
 
 	$formData = json_decode($_POST["formData"], true);
-	$surname = $formData['surname'];
+	$numberField = $formData[$nameOfTheField];
 
-	if (!$surname) {
-		throw new Exception("error : surname is required");
+	if (!$numberField) {
+		throw new Exception("error : ${nameOfTheField} is required");
 	}
 
-	if (strlen($surname) < $LOWER_LIMIT_SURNAME) {
-		throw new Exception("error : surname is below min length");
+	if (!preg_match($pattern, $numberField)) {
+		throw new Exception("error : ${nameOfTheField} must contain only digits");
 	}
 
-	if (strlen($surname) > $UPPER_LIMIT_SURNAME) {
-		throw new Exception("error : surname exceeds max length");
-	}
-
-	if (!preg_match($PATTERN_SURNAME, $surname)) {
-		throw new Exception("error : surname must contain only letters");
-	}
-
-	return formatInput($surname);
+	return formatInput($numberField);
 }
+
 
 function getFacultynum(): string {
-	$LOWER_LIMIT_FACULTYNUM = 5;
-	$UPPER_LIMIT_FACULTYNUM = 8;
-	$PATTERN_SURNAME = "/[1-9]{{$LOWER_LIMIT_FACULTYNUM},{$UPPER_LIMIT_FACULTYNUM}}/";
+	$pattern_facultynum = "/^[1-9]{1}[0-9]{4,7}$/";
 
 	$formData = json_decode($_POST["formData"], true);
 	$facultynum = $formData['facultynum'];
 
-	if (!preg_match($PATTERN_SURNAME, $facultynum)) {
-		throw new Exception("error : facultynum should contain only letters");
+	if (!$facultynum) {
+		throw new Exception("error : faculty number is required");
+	}
+
+	if (!preg_match($pattern_facultynum, $facultynum)) {
+		throw new Exception("error : faculty number must contain only digits");
 	}
 
 	return formatInput($facultynum);
+}
+
+function getMotivation() {
+	$pattern = "/^[A-Za-z0-9 ]{2,30}$/";
+
+	$formData = json_decode($_POST["formData"], true);
+	$motivation = $formData['motivation'];
+
+	if (!$motivation) {
+		return null;
+	}
+
+	if (!preg_match($pattern, $motivation)) {
+		throw new Exception("[backend]error : motivation for enrolling must contain only letters and digits");
+	}
+
+	return formatInput($motivation);
 }
 
 function formatInput($formField): string {

@@ -1,59 +1,97 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>hw-02</title>
-        <link rel="stylesheet" type="text/css" href="styles/index.css" />
-        <script defer src="script/registration.js"></script>
-    </head>
-    <body>
-        <section id="registration">
-            <header id="form-heading">
-                <h2>Registration</h2>
-            </header>
-            <form id="form-box">
-                <label id="errorsLabel"></label>
+	<head>
+		<meta charset="UTF-8" />
+		<title>hw-02</title>
+		<link rel="stylesheet" type="text/css" href="styles/index.css" />
+		<script defer src="script/registration.js"></script>
+	</head>
+	<body>
+		<section id="registration">
+			<header id="form-heading">
+				<h2>Registration</h2>
+			</header>
+			<form id="form-box">
+				<label id="errorsLabel"></label>
 
-                <div class="input-box">
-                    <label for="firstname">First name</label>
-                    <input
-                        type="text"
-                        name="firstname"
-                        id="firstname"
-                        pattern="[A-Za-z]{2,50}"
-                        title="first name must contain letters and be between 2 and 50 symbols"
-                        required
-                    />
-                </div>
+				<div class="input-box">
+					<label for="firstname">First name</label>
+					<input
+						type="text"
+						name="firstname"
+						id="firstname"
+						pattern="[A-Za-z]{2,50}"
+						title="first name must contain letters and be between 2 and 50 symbols"
+						required
+					/>
+				</div>
 
-                <div class="input-box">
-                    <label for="surname">Surname</label>
-                    <input
-                        type="text"
-                        name="surname"
-                        id="surname"
-                        pattern="[A-Za-z]{2,50}"
-                        title="surname must must contain letters and be between 2 and 50 symbols"
-                        required
-                    />
-                </div>
+				<div class="input-box">
+					<label for="surname">Surname</label>
+					<input
+						type="text"
+						name="surname"
+						id="surname"
+						pattern="[A-Za-z]{2,50}"
+						title="surname must must contain letters and be between 2 and 50 symbols"
+						required
+					/>
+				</div>
 
-                <div class="input-box">
-                    <label for="facultynum">Faculty number</label>
-                    <input
-                        type="text"
-                        name="facultynum"
-                        id="facultynum"
-                        pattern="[1-9]{5,8}"
-                        title="faculty number must be between 5 and 8 digits"
-                        required
-                    />
-                </div>
+				<div class="input-box">
+					<label for="major">Major</label>
+					<select name="" id="major">
+						<option value="SWE">Software engineering</option>
+						<option value="CS">Computer science</option>
+						<option value="IS">Information Systems</option>
+						<option value="Inf">Informatics</option>
+					</select>
+				</div>
 
-                <div class="submit-box">
-                    <input type="submit" value="Save" id="submit-button" />
-                </div>
-            </form>
-        </section>
-    </body>
+				<div class="input-box">
+					<label for="course">Course</label>
+					<input type="number" name="course" id="course" min="1" max="4" value="1" />
+				</div>
+
+				<div class="input-box">
+					<label for="facultynum">Faculty number</label>
+					<input
+						type="text"
+						name="facultynum"
+						id="facultynum"
+						pattern="[1-9]{5,8}"
+						title="faculty number must be between 5 and 8 digits"
+						required
+					/>
+				</div>
+
+				<div class="input-box">
+					<label for="group">Group number</label>
+					<input
+						type="number"
+						name="group"
+						id="group"
+						min="1"
+						max="8"
+						value="1"
+						pattern="[1-8]{1}"
+						title="group must be between 1 and 8"
+						required
+					/>
+				</div>
+
+				<div id="textarea-box">
+					<label for="motivation">Motivation for enrolling</label>
+					<textarea
+						id="motivation"
+						placeholder="Tell us why you want to enroll"
+					></textarea>
+				</div>
+
+				<div class="submit-box">
+					<input type="submit" value="Save" id="submit-button" />
+				</div>
+			</form>
+		</section>
+	</body>
 </html>

@@ -22,7 +22,7 @@
 
             $user = $query->fetch(PDO::FETCH_ASSOC);
 
-//            var_dump($user); echo '<br>';
+        //    var_dump($user); echo '<br>';
 
             if(!empty($user)) {
                 throw new Exception('error : user already registered');

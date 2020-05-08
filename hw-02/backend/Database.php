@@ -19,7 +19,7 @@
 
         public function insert($data) {
             try {
-                $sql = "INSERT INTO users (firstname, surname, facultynum) VALUES(:firstname, :surname, :facultynum)";
+                $sql = "INSERT INTO users (firstname, surname, major, course, studentGroup, motivation, facultynum) VALUES(:firstname, :surname, :major, :course, :studentGroup, :motivation, :facultynum);";
                 $insertStatement = $this->connection->prepare($sql);
                 $result = $insertStatement->execute($data);
 

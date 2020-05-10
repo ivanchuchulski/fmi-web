@@ -1,3 +1,4 @@
+-- db dml commands
 
 -- insert
 INSERT INTO users (firstname, surname, major, course, studentGroup, motivation, facultynum) VALUES(:firstname, :surname, :major, :course, :studentGroup, motivation, :facultynum);

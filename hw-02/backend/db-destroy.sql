@@ -1,3 +1,5 @@
+-- db ddl commands for removal
+
 USE `62167_ivan_chuchulski`;
 
 DELETE FROM users;

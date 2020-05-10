@@ -1,6 +1,10 @@
--- script to run in phpmyadmin
+-- db ddl commands for creation
+-- for db setup view the db-config.ini file in backend folder
+-- host=127.0.0.1
+-- name=62167_ivan_chuchulski
+-- user=root
+-- password=
 
--- to change the name to <FN>_<FirstName>_<LastName>
 CREATE DATABASE IF NOT EXISTS `62167_ivan_chuchulski`;
 
 USE `62167_ivan_chuchulski`;

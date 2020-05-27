@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>hw-03</title>
+		<link rel="stylesheet" type="text/css" href="styles/index.css"/>
+		<script defer src="script/registration.js"></script>
+	</head>
+	<body>
+		<section id="registration">
+			<header id="form-heading">
+				<h2>Registration</h2>
+			</header>
+			<form id="form-box">
+				<label id="errorsLabel"></label>
+
+				<div class="input-box">
+					<label for="name">First and last name</label>
+					<input
+						type="text"
+						name="name"
+						id="name"
+						pattern="[A-Za-z]{2,50}"
+						title="name must contain letters and be between 2 and 50 symbols"
+						required
+					/>
+				</div>
+
+				<div class="input-box">
+					<label for="username">Username</label>
+					<input
+						type="text"
+						name="username"
+						id="username"
+						pattern="[A-Za-z]{3,10}"
+						title="username must contain letters and be between 3 and 10 symbols"
+						required
+					/>
+				</div>
+
+				<div class="input-box">
+					<label for="email">Email</label>
+					<input
+						type="email"
+						name="email"
+						id="email"
+						pattern="[A-Za-z0-9]{3,10}@[a-z]+\.[a-z]+"
+						title="email must "
+						required
+					/>
+				</div>
+
+				<div class="input-box">
+					<label for="password">Password</label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						pattern=""
+						title="password must contain uppercase letter, a number and be between {6,10} "
+						required
+					/>
+				</div>
+
+				<!-- TODO : address field, optional -->
+
+				<div class="submit-box">
+					<input type="submit" value="Save" id="submit-button" />
+				</div>
+			</form>
+		</section>
+	</body>
+</html>

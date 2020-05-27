@@ -1,0 +1,112 @@
+html,
+body {
+    height: 100%;
+}
+
+#registration {
+    width: 375px;
+    height: 750px;
+    margin: 0 auto;
+}
+
+#form-heading {
+    height: 40px;
+    width: 100%;
+    margin: auto;
+
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(103, 51, 199);
+    color: white;
+}
+
+#form-heading h2 {
+    padding: 10px;
+    font-size: 18px;
+}
+
+#form-box {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+
+    height: 680px;
+    width: 100%;
+    
+    margin: auto;
+
+    background-color: rgb(240, 240, 240);
+    border: solid 1px black;
+    border-top-style: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label#errorsLabel {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-size: 17px;
+    text-align: center;
+    color: red;
+}
+
+
+.input-box {
+    width: 75%;
+    height: 45px;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+input#name,
+input#username,
+input#email,
+input#password
+{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 30px;
+    margin: auto;
+}
+
+.submit-box {
+    top: 10px;
+    width: 75%;
+    height: 30px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#submit-button {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+
+    border: none;
+    background-color: rgb(103, 51, 199);
+    color: white;
+}
+
+
+
+/* font-size doesn't work */
+input[value="Регистрация"] {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    box-sizing: border-box;
+    width: 225px;
+    height: 225px;
+    margin: auto;
+    margin-top: 1px;
+    position: relative;
+    border: 1px solid green;
+}

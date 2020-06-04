@@ -5,130 +5,162 @@
 })();
 
 function submitForm(clickEvent) {
+    const url = 'https://jsonplaceholder.typicode.com/users'; 
+
+    
+    clickEvent.preventDefault();
+
+    ajax('GET', url)
+        .then(handleRequest)
+        .catch(console.error)
+}
+
+function ajax(method, url) {
+    return new Promise(function(resolve, reject) {
+        let xhr = new XMLHttpRequest();
+
+        xhr.onload = function() {
+            resolve(xhr.responseText);
+        }
+
+        xhr.onerror = reject; 
+        xhr.open(method, url, true);
+        xhr.send();
+    });
+}
+
+function handleRequest(responseText) {
     try {
-        clickEvent.preventDefault();
-
+        let response = JSON.parse(responseText);
         let formData = {
-                        name: null, 
-                        username : null, 
-                        email: null, 
-                        password :null,
-                    };
+            name: null, 
+            username : null, 
+            email: null, 
+            password :null,
+        };
+        
+        formData['name'] = validateName();
+        formData['username'] = validateUsername();
+        formData['email'] = validateEmail();
+        formData['password'] = validatePassword();
+        
+        // console.log(formData);
+        // console.log(response);
 
-        // formData['name'] = validateFirstname();
-        // formData['username'] = validateSurname();    
-        
-        console.log("formData :");
-        printObject(formData);
+        Object.keys(response).forEach(key => {
+            let { username } = response[key];
 
-        
-        // first query the site GET for users
-        // check if user is already signed
-        // display message to user
-        const url = 'https://jsonplaceholder.typicode.com/users'; 
-        sendAjaxRequest('GET', url, null);
-        
-        // sendAjaxRequest('GET', url, `formData=${JSON.stringify(formData)}`);
-    }
-    catch (exception) {
-        displayErrors(exception);
+            // console.log('username : ' + username);
+
+            if (formData['username'] === username) {
+                throw 'error : user already registered'
+            }
+        })
+
+        displaySuccessPage();
+    } 
+    catch (error) {
+        displayErrors(error)
     }
 }
 
-/**
-*   we could use this function for text data fields, 
-*   but it's error reporting isn't that good because
-*   we can't exlicity change the name of the field in the error message
-*   and have to pass it as parameter
-*   @param {*} idOfTheField id of the field in html document
-*   @param {*} nameOfTheField name of the field, it's displayed in the error message 
-*   @param {*} lowerLimit lower limit of the lenght of the field 
-*   @param {*} upperLimit upper limit of the lenght of the field 
-*   @return {*} the formatted data of the field, formatting is done by 
-*/
-function validateTextField(idOfTheField, nameOfTheField, lowerLimit, upperLimit, ) {
-    const pattern = new RegExp(`/^[A-Za-z]{${lowerLimit},${upperLimit}}$/`);
+function validateName() {
+    const lowerLimit = 2;
+    const upperLimit = 50;
+    const pattern = `^[A-Za-z ]{${lowerLimit},${upperLimit}}$`;
+    const regex = new RegExp(pattern);
+    const elementId = 'name';
 
-    let field = document.getElementById(idOfTheField).value;
+    let name = document.getElementById(`${elementId}`).value;
 
-    if (field === '') {
-        throw `error : ${nameOfTheField} is required`;
+    if (name === '') {
+        throw 'error : first and last name is required';
     }
 
-    if (!field.match(pattern)) {
-        throw `error : ${nameOfTheField} must contain only letters and be between ${lowerLimit} and ${upperLimit} symbols`;
+    if (!name.match(regex)) {
+        throw `error : first and last name must contain only letters and be between ${lowerLimit} and ${upperLimit} symbols`;
     }
 
-    return formatInput(field);
+    return formatInput(name);
 }
 
-function validateFirstname() {
-    const firstnamePattern = new RegExp(/^[A-Za-z]{2,50}$/);
+function validateUsername() {
+    const lowerLimit = 3;
+    const upperLimit = 10;
+    const pattern = `^[A-Za-z-_]{${lowerLimit},${upperLimit}}$`;
+    const regex = new RegExp(pattern);
+    const elementId = 'username';
 
-    let firstname = document.getElementById('firstname').value;
+    let username = document.getElementById(`${elementId}`).value;
 
-    if (firstname === '') {
-        throw 'error : first name is required';
+    if (username === '') {
+        throw 'error : username is required';
     }
 
-    if (!firstname.match(firstnamePattern)) {
-        throw 'error : first name must contain only letters and be between 2 and 50 symbols';
+    if (!username.match(regex)) {
+        throw `error : username must contain only letters and be between ${lowerLimit} and ${upperLimit} symbols`;
     }
     
-    return formatInput(firstname);
+    return formatInput(username);
 }
 
-function validateSurname() {
-    const surnamePattern = new RegExp(/^[A-Za-z]{2,50}$/);
+function validateEmail() {
+    const lowerLimit = 3;
+    const upperLimit = 15;
+    const pattern = `^[A-Za-z_-]{${lowerLimit},${upperLimit}}@[a-z]+\.[a-z]+$`;
+    const regex = new RegExp(pattern);
+    const elementId = 'email';
 
-    let surname = document.getElementById('surname').value;
+    let email = document.getElementById(`${elementId}`).value;
 
-    if (surname === '') {
-        throw 'error : surname is required';
+    if (email === '') {
+        throw 'error : email is required';
     }
 
-    if (!surname.match(surnamePattern)) {
-        throw 'error : surnname must contain only letters and be between 2 and 50 symbols';
+    if (!email.match(regex)) {
+        throw 'error : email must have the following form : example@domain-name.com';
     }
-
-    return formatInput(surname);
+    
+    return formatInput(email);
 }
 
+function validatePassword() {
+    const lowerLimit = 6;
+    const upperLimit = 10;
+    const pattern = `^[A-Za-z0-9]{${lowerLimit},${upperLimit}}$`;
+    const regex = new RegExp(pattern);
+    const elementId = 'password';
 
-function validateMajor() {
-    const majorPattern = new RegExp(/^[A-Za-z]{2,20}$/);
+    let password = document.getElementById(`${elementId}`).value;
 
-    let major = document.getElementById('major').value;
-
-    if (major === '') {
-        throw 'error : major is required';
+    if (password === '') {
+        throw 'error : password is required';
     }
 
-    if (!major.match(majorPattern)) {
-        throw 'error : major must contain only letters';
+    if (!containsUppercaseLetter(password)) {
+        throw 'error : password must contain only at least one uppercase letter';
     }
 
-    return formatInput(major);
+    if (!containsDigit(password)) {
+        throw 'error : password must contain only at least one digit';
+    }
+
+    if (!password.match(regex)) {
+        throw `error : password must contain only at least one uppercase letter, at least one digit and be between ${lowerLimit} and ${upperLimit} symbols`;
+    }
+    
+    return formatInput(password);
 }
 
+function displaySuccessPage() {
+    const pageURL = 'success.html';
 
-function validateMotivation() {
-    const motivationPattern = new RegExp(/^[A-Za-z0-9 ]{2,30}$/);
+    window.location = pageURL;
+}
 
-    let motivation = document.getElementById('motivation').value;
-
-    console.log(motivation);
-
-    // motivation is not required, so if it's empty we return null
-    if (motivation === '') {
-        return null;
-    }
-
-    if (!motivation.match(motivationPattern)) {
-        throw 'error : motivation must constain letters, digits and spaces only and have length between 2 and 30';
-    }
-
-    return formatInput(motivation);
+function displayErrors(error) {
+    let errors = document.getElementById('errorsLabel');
+    errors.innerHTML = error; 
 }
 
 function formatInput(formField) {
@@ -148,7 +180,6 @@ function removeSlashes(str) {
 }
 
 function removeHTMLSpecialCharacters(str) {
-
     let htmlSpecialCharactersMap = {
         '&': '&amp;',
         '<': '&lt;',
@@ -160,43 +191,11 @@ function removeHTMLSpecialCharacters(str) {
       return str.replace(/[&<>"']/g, function(symbol) { return htmlSpecialCharactersMap[symbol]; });
 }
 
-function sendAjaxRequest(method, url, data) {
-    let xhr = new XMLHttpRequest();
-
-    xhr.addEventListener('load', r => requestHandler(xhr));
-
-    xhr.open(method, url, true);
-    // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.send(data);
+function containsUppercaseLetter(str) {
+    return str.match(/[A-Z]/);
 }
 
-function requestHandler(xhr) {
-    let response = JSON.parse(xhr.responseText);
-    
-    if (xhr.status == 200) {
-        console.log(response)
-    }
-    else {
-        console.error(xhr.re)
-    }
-
-    // if (response.success) {
-    //     displaySuccessPage('success.html');
-    // }
-    // else {
-    //     displayErrors(response.error);
-    // }
+function containsDigit(str) {
+    return str.match(/[0-9]/);
 }
 
-function displaySuccessPage(pageURL) {
-    window.location = pageURL;
-}
-
-function displayErrors(error) {
-    let errors = document.getElementById('errorsLabel');
-    errors.innerHTML = error; 
-}
-
-function printObject(object) {
-    console.log(JSON.stringify(object, null, 4));
-}

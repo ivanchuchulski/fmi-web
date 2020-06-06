@@ -6,7 +6,6 @@
 
 function submitForm(clickEvent) {
     const url = 'https://jsonplaceholder.typicode.com/users'; 
-
     
     clickEvent.preventDefault();
 
@@ -19,11 +18,9 @@ function ajax(method, url) {
     return new Promise(function(resolve, reject) {
         let xhr = new XMLHttpRequest();
 
-        xhr.onload = function() {
-            resolve(xhr.responseText);
-        }
-
+        xhr.onload = () => { resolve(xhr.responseText); }
         xhr.onerror = reject; 
+
         xhr.open(method, url, true);
         xhr.send();
     });
@@ -38,21 +35,18 @@ function handleRequest(responseText) {
             email: null, 
             password :null,
         };
-        
-        formData['name'] = validateName();
-        formData['username'] = validateUsername();
-        formData['email'] = validateEmail();
-        formData['password'] = validatePassword();
+
+        validateFields(formData);
         
         // console.log(formData);
         // console.log(response);
 
-        Object.keys(response).forEach(key => {
-            let { username } = response[key];
+        Object.keys(response).forEach((key) => {
+            let existingUsername = response[key].username;
 
-            // console.log('username : ' + username);
+            // console.log('existingUsername : ' + existingUsername);
 
-            if (formData['username'] === username) {
+            if (formData['username'] === existingUsername) {
                 throw 'error : user already registered'
             }
         })
@@ -62,6 +56,24 @@ function handleRequest(responseText) {
     catch (error) {
         displayErrors(error)
     }
+}
+
+function validateFields(formData) {
+    formData['name'] = validateName();
+    formData['email'] = validateEmail();
+    formData['username'] = validateUsername();
+    formData['password'] = validatePassword();
+}
+
+function displaySuccessPage() {
+    const pageURL = 'success.html';
+
+    window.location = pageURL;
+}
+
+function displayErrors(error) {
+    let errors = document.getElementById('errorsLabel');
+    errors.innerHTML = error; 
 }
 
 function validateName() {
@@ -150,17 +162,6 @@ function validatePassword() {
     }
     
     return formatInput(password);
-}
-
-function displaySuccessPage() {
-    const pageURL = 'success.html';
-
-    window.location = pageURL;
-}
-
-function displayErrors(error) {
-    let errors = document.getElementById('errorsLabel');
-    errors.innerHTML = error; 
 }
 
 function formatInput(formField) {

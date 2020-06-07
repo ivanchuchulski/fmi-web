@@ -65,7 +65,8 @@ label#errorsLabel {
 input#name,
 input#username,
 input#email,
-input#password
+input#password,
+input#city
 {
     box-sizing: border-box;
     display: block;

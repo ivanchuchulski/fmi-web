@@ -31,9 +31,10 @@ function handleRequest(responseText) {
         let response = JSON.parse(responseText);
         let formData = {
             name: null, 
-            username : null, 
+            username: null, 
             email: null, 
-            password :null,
+            password: null,
+            city: null
         };
 
         validateFields(formData);
@@ -63,6 +64,7 @@ function validateFields(formData) {
     formData['email'] = validateEmail();
     formData['username'] = validateUsername();
     formData['password'] = validatePassword();
+    formData['city'] = validateCity();
 }
 
 function displaySuccessPage() {
@@ -163,6 +165,27 @@ function validatePassword() {
     
     return formatInput(password);
 }
+
+function validateCity() {
+    const lowerLimit = 2;
+    const upperLimit = 50;
+    const pattern = `^[A-Za-z ]{${lowerLimit},${upperLimit}}$`;
+    const regex = new RegExp(pattern);
+    const elementId = 'city';
+
+    let city = document.getElementById(`${elementId}`).value;
+
+    if (city === '') {
+        return;
+    }
+
+    if (!city.match(regex)) {
+        throw `error : city must contain only letters and be between ${lowerLimit} and ${upperLimit} symbols`;
+    }
+
+    return formatInput(city);
+}
+
 
 function formatInput(formField) {
     formField = trimTrailingWhitespace(formField);

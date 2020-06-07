@@ -66,7 +66,8 @@ input#name,
 input#username,
 input#email,
 input#password,
-input#city
+input#city,
+input#street
 {
     box-sizing: border-box;
     display: block;

@@ -65,6 +65,7 @@ function validateFields(formData) {
     formData['username'] = validateUsername();
     formData['password'] = validatePassword();
     formData['city'] = validateCity();
+    formData['street'] = validateStreet();
 }
 
 function displaySuccessPage() {
@@ -184,6 +185,26 @@ function validateCity() {
     }
 
     return formatInput(city);
+}
+
+function validateStreet() {
+    const lowerLimit = 2;
+    const upperLimit = 50;
+    const pattern = `^[A-Za-z0-9 ]{${lowerLimit},${upperLimit}}$`;
+    const regex = new RegExp(pattern);
+    const elementId = 'street';
+
+    let street = document.getElementById(`${elementId}`).value;
+
+    if (street === '') {
+        return;
+    }
+
+    if (!street.match(regex)) {
+        throw `error : street must contain only letters and numbers, and be between ${lowerLimit} and ${upperLimit} symbols`;
+    }
+
+    return formatInput(street);
 }
 
 

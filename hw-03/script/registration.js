@@ -34,7 +34,8 @@ function handleRequest(responseText) {
             username: null, 
             email: null, 
             password: null,
-            city: null
+            city: null,
+            postalCode: null
         };
 
         validateFields(formData);
@@ -66,6 +67,7 @@ function validateFields(formData) {
     formData['password'] = validatePassword();
     formData['city'] = validateCity();
     formData['street'] = validateStreet();
+    formData['postalCode'] = validatePostalCode();
 }
 
 function displaySuccessPage() {
@@ -205,6 +207,26 @@ function validateStreet() {
     }
 
     return formatInput(street);
+}
+
+function validatePostalCode() {
+    const lowerLimit = 2;
+    const upperLimit = 50;
+    const pattern = `^[0-9]{5}-[0-9]{4}$`;
+    const regex = new RegExp(pattern);
+    const elementId = 'postalCode';
+
+    let postalCode = document.getElementById(`${elementId}`).value;
+
+    if (postalCode === '') {
+        return;
+    }
+
+    if (!postalCode.match(regex)) {
+        throw `error : postalCode have the following form : 12345-5678`;
+    }
+
+    return formatInput(postalCode);
 }
 
 

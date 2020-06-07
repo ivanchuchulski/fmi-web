@@ -20,8 +20,6 @@
 						type="text"
 						name="name"
 						id="name"
-						pattern="[A-Za-z]{2,50}"
-						title="name must contain letters and be between 2 and 50 symbols"
 						required
 					/>
 				</div>
@@ -32,8 +30,6 @@
 						type="email"
 						name="email"
 						id="email"
-						pattern="[A-Za-z0-9]{3,10}@[a-z]+\.[a-z]+"
-						title="email must be in the following form : example@domain-name.com"
 						required
 					/>
 				</div>
@@ -44,8 +40,6 @@
 						type="text"
 						name="username"
 						id="username"
-						pattern="[A-Za-z]{3,10}"
-						title="username must contain letters and be between 3 and 10 symbols"
 						required
 					/>
 				</div>
@@ -56,7 +50,6 @@
 						type="password"
 						name="password"
 						id="password"
-						title="password must contain uppercase letter, a number and be between {6,10} "
 						required
 					/>
 				</div>
@@ -65,7 +58,7 @@
 					<label for="city">City (optional)</label>
 					<input 
 						type="text" 
-						name="city" 
+						name="city"
 						id="city" />
 				</div>
 
@@ -75,6 +68,14 @@
 						type="text" 
 						name="street" 
 						id="street" />
+				</div>
+
+				<div class="input-box">
+					<label for="postalCode">Postal code (optional)</label>
+					<input 
+						type="text" 
+						name="postalCode" 
+						id="postalCode" />
 				</div>
 
 				<div class="submit-box">

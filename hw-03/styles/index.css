@@ -5,7 +5,7 @@ body {
 
 #registration {
     width: 375px;
-    height: 750px;
+    height: 725px;
     margin: 0 auto;
 }
 
@@ -31,7 +31,7 @@ body {
     display: block;
     position: relative;
 
-    height: 680px;
+    height: 650px;
     width: 100%;
     
     margin: auto;
@@ -67,7 +67,8 @@ input#username,
 input#email,
 input#password,
 input#city,
-input#street
+input#street,
+input#postalCode
 {
     box-sizing: border-box;
     display: block;
